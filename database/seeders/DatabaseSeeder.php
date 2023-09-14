@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         $this -> call ([
             SponsorshipSeeder::class,
             UserSeeder::class,
-            UserDetailSeeder::class,
+            HunterSeeder::class,
         ]);
     }
 }

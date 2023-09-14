@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('sponsorship_id');
             $table->foreign('sponsorship_id')->references('id')->on('sponsorships');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('user_id')->on('hunters');
             $table->timestamp('sponsorship_start');
             $table->dateTime('sponsorship_end');
         });
