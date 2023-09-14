@@ -343,28 +343,35 @@ class BookingMessageSeeder extends Seeder
                 "message" => 'A mischievous poltergeist is causing havoc in our village, and we can\'t find peace. We need a paranormal investigator to resolve this ghostly dilemma.',
             ],[
                 "user_id" => '26',
-                "message" => '',
+                "message" => 'Kai, the mysteries of the deep ocean have confounded us. We need a sea monster expert like you to guide us.',
+                
             ],[
                 "user_id" => '26',
-                "message" => '',
+                "message" => 'The sea monsters are growing bolder. Kai, we need your unmatched courage to protect our shores.',
+                
             ],[
                 "user_id" => '26',
-                "message" => '',
+                "message" => 'Kai, we\'ve uncovered secrets of Asian myth beneath the waves. Can your experience help us navigate these treacherous waters?',
+                
             ],[
                 "user_id" => '26',
-                "message" => '',
+                "message" => 'The spirit of an ancient hero is trapped in a cursed sword, and only a worthy warrior can release it. We are looking for a noble champion to wield the blade.',
+                
             ],[
                 "user_id" => '26',
-                "message" => '',
+                "message" => 'A mysterious plague is spreading, turning our livestock into monstrous creatures. We seek a skilled herbalist to find a cure and save our farms.',
+                
             ],[
                 "user_id" => '26',
-                "message" => '',
+                "message" => 'An ancient library of forgotten knowledge lies hidden within a labyrinth of shifting sands. We are in search of a dedicated scholar to uncover its secrets.',
+                
             ],[
                 "user_id" => '26',
-                "message" => '',
+                "message" => 'A forest guardian, angered by the destruction of its grove, threatens to unleash nature\'s fury. We need an eco-mage to restore balance.',
+                
             ],[
                 "user_id" => '26',
-                "message" => '',
+                "message" => 'A cursed amulet has bound our village\'s fate to the changing moon phases. We require a lunar expert to break this celestial curse.',
             ],[
                 "user_id" => '',
                 "message" => '',

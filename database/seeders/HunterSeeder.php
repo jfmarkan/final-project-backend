@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\UserDetail;
+use App\Models\Hunter;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class UserDetailSeeder extends Seeder
+class HunterSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -166,12 +166,12 @@ class UserDetailSeeder extends Seeder
         ];
 
         foreach ($details as $index=>$detail) {
-            $newUserDetail = new UserDetail();
-            $newUserDetail->user_id = $index + 1;
-            $newUserDetail->name = $detail['name'];
-            $newUserDetail->image = $detail['image'];
-            $newUserDetail->surname = $detail['surname'];
-            $newUserDetail->save();
+            $newHunter = new Hunter();
+            $newHunter->user_id = $index + 1;
+            $newHunter->name = $detail['name'];
+            $newHunter->image = $detail['image'];
+            $newHunter->surname = $detail['surname'];
+            $newHunter->save();
         }
     }
 }

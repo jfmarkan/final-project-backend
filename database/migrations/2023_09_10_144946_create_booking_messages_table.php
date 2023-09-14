@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('booking_messages', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('user_id')->on('hunters');
             $table->string('email', 50);
             $table->text('message');
             $table->timestamp('created_at');
