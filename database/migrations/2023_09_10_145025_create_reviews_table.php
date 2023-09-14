@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('surname', 50);
             $table->unsignedTinyInteger('vote');
             $table->text('review')->nullable();
-            $table->timestamp('created_at');
+            $table->timestamps();
         });
     }
 

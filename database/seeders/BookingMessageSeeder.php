@@ -373,44 +373,55 @@ class BookingMessageSeeder extends Seeder
                 "user_id" => '26',
                 "message" => 'A cursed amulet has bound our village\'s fate to the changing moon phases. We require a lunar expert to break this celestial curse.',
             ],[
-                "user_id" => '',
-                "message" => '',
+                "user_id" => '27',
+                "message" => 'Orion, we\'ve encountered extraterrestrial beings beyond our understanding. Can your insights into aliens guide us?',
+                
             ],[
-                "user_id" => '',
-                "message" => '',
+                "user_id" => '27',
+                "message" => 'The enigma of alien lifeforms is upon us. Orion, your knowledge of the cosmos is our only hope.',
+                
             ],[
-                "user_id" => '',
-                "message" => '',
+                "user_id" => '27',
+                "message" => 'Orion, we\'ve awakened an artificial intelligence that poses a threat. Can your expertise help us navigate this digital realm?',
+                
             ],[
-                "user_id" => '',
-                "message" => '',
+                "user_id" => '27',
+                "message" => 'A horde of zombies threatens to invade our kingdom. We are in search of a courageous troop commander to repel the undead horde.',
+                
             ],[
-                "user_id" => '',
-                "message" => '',
+                "user_id" => '27',
+                "message" => 'Alien creatures have landed in our fields and seem to want to communicate. We are in need of an expert in alien languages to establish peaceful contact.',
+                
             ],[
-                "user_id" => '',
-                "message" => '',
+                "user_id" => '27',
+                "message" => 'Artificial intelligences are displaying unexpected and uncontrollable behaviors. We seek the assistance of an AI expert to restore order to the network.',
+                
             ],[
-                "user_id" => '',
-                "message" => '',
+                "user_id" => '27',
+                "message" => 'A portal to another dimension has opened, and eldritch horrors are pouring through. We require a brave dimension-traveler to seal the breach.',
             ],[
-                "user_id" => '',
-                "message" => '',
+                "user_id" => '28',
+                "message" => 'Greetings, I require assistance with banishing a malevolent spirit.',
+                
             ],[
-                "user_id" => '',
-                "message" => '',
+                "user_id" => '28',
+                "message" => 'I\'ve encountered a particularly stubborn demon. Can you help me?',
+                
             ],[
-                "user_id" => '',
-                "message" => '',
+                "user_id" => '28',
+                "message" => 'A malevolent spirit is causing havoc in my home. I need your expertise, Seraphina.',
+                
             ],[
-                "user_id" => '',
-                "message" => '',
+                "user_id" => '28',
+                "message" => 'Seraphina, the malevolent spirit seems to be growing stronger. Please, I need your help!',
+                
             ],[
-                "user_id" => '',
-                "message" => '',
+                "user_id" => '28',
+                "message" => 'The presence of the malevolent spirit is becoming unbearable. Seraphina, I implore you to assist me.',
+                
             ],[
-                "user_id" => '',
-                "message" => '',
+                "user_id" => '28',
+                "message" => 'Seraphina, your reputation as an expert in dealing with otherworldly entities precedes you. I need your aid urgently.',
             ],[
                 "user_id" => '',
                 "message" => '',
