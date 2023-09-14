@@ -12,7 +12,7 @@ class SpecializationSeeder extends Seeder
      */
     public function run(): void
     {
-        $specialization = [
+        $specializations = [
            'Dragons', 'Aliens', 'Zombie', 'Monsters', 'Mummy', 'Demons', 'Ghost', 'Angels', 'Vampires', 'Mutants', 'Robots', 'Mythical Creatures - Europe', 'Orcs', 'Fairies', 'Mythical Creatures - America', 'Mythical Creatures - Africa', 'Sirens', 'Sea Monsters', 'Mutant', 'Mythical Creatures - Asia', 'Artificial Intelligences'
         ];
 
