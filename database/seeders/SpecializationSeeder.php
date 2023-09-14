@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Model\Specialization;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,7 +19,7 @@ class SpecializationSeeder extends Seeder
 
         foreach ($specializations as $specialization){
             $newSpecialization = new Specialization();
-            $newSpecialization->name= $specialization;
+            $newSpecialization->name= $specialization['name'];
             $newSpecialization->save();
         }
     }
