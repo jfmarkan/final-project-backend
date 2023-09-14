@@ -19,7 +19,7 @@ class SpecializationSeeder extends Seeder
 
         foreach ($specializations as $specialization){
             $newSpecialization = new Specialization();
-            $newSpecialization->name= $specialization['name'];
+            $newSpecialization->name= $specialization;
             $newSpecialization->save();
         }
     }
