@@ -174,9 +174,5 @@ class HunterSeeder extends Seeder
             $newHunter->surname = $detail['surname'];
             $newHunter->save();
         }
-
-        $newHunter->specializations()->sync([1]);
-
-        $specializationIds = Specialization::all()->pluck('id')->toArray();
     }
 }
