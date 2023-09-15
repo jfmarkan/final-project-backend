@@ -41,25 +41,35 @@ class AdminController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        ///
+    
+        $user = User::findOrFail($slug);
+
+        return response()->json([
+            'success' => true,
+            'results' => $user
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
-        //
+        
+        return response()->json([
+            'success' => true,
+            'results' => $user
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, User $user)
     {
-        //
+        
     }
 
     /**
