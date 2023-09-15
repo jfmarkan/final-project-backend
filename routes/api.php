@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\HunterController as ApiHunterController;
+use App\Http\Controllers\Api\GuestController as ApiGuestController;
+use App\Http\Controllers\Api\AdminController as ApiAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +20,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/hunters', [ApiHunterController::class, 'index'])->name('api.hunters.index');
-Route::get('/hunters/{hunter}', [ ApiHunterController::class, 'show' ])->name('api.hunters.show');
+
+// GUEST CONTROLLER ROUTES
+Route::get('/hunters', [ApiGuestController::class, 'index'])->name('api.guest.index');
+Route::get('/hunters/{hunter}', [ ApiGuestController::class, 'show' ])->name('api.guest.show');
+
+
+
+// ADMIN CONTROLLER ROUTES
+Route::get('admin/hunters', [ApiAdminController::class, 'index'])->name('api.admin.index');
+Route::get('admin/hunters/{hunter}', [ ApiAdminController::class, 'show' ])->name('api.admin.show');
