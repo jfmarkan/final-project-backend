@@ -18,4 +18,14 @@ class GuestController extends Controller
             'results' => $hunters,
         ]);
     }
+
+    public function show(string $slug)
+    {
+        $hunters = Hunter::all()->findOrFail($slug);
+
+        return response()->json([
+            'success' => true,
+            'results' => $hunters,
+        ]);
+    }
 }

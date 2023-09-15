@@ -43,7 +43,7 @@ class AdminController extends Controller
      */
     public function show(string $id)
     {
-        //
+        ///
     }
 
     /**
