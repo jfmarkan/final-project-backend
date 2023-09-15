@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Hunter;
+use App\Models\User;
 
 class GuestController extends Controller
 {
@@ -26,6 +27,16 @@ class GuestController extends Controller
         return response()->json([
             'success' => true,
             'results' => $hunters,
+        ]);
+    }
+
+    public function store (Request $request){
+        $data = $request->all();
+
+        $user = User::create($data);
+
+        return response()->json([
+            'success' => true
         ]);
     }
 }
