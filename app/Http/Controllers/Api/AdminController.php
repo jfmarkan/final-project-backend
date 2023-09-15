@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Http\Requests\AdminUpdateRequest;
 use App\Models\User;
+use App\Models\Hunter;
 
 class AdminController extends Controller
 {
@@ -41,25 +43,41 @@ class AdminController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        ///
+    
+        $user = User::findOrFail($slug);
+
+        return response()->json([
+            'success' => true,
+            'results' => $user
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
-        //
+        
+        return response()->json([
+            'success' => true,
+            'results' => $user
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(AdminUpdateRequest $request, Hunter $hunter)
     {
-        //
+
+        $hunter->update($request->validated());
+
+        return response()->json([
+            'success' => true,
+            'results' => $hunter
+        ]);
     }
 
     /**
