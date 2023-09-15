@@ -12,14 +12,22 @@ use Illuminate\Support\Facades\Auth;
 class GuestController extends Controller
 {
     
-    public function index (){
+    public function index (Request $request){
 
-        $hunters = Hunter::all();
+        $query = Hunter::query();
+
+        if ($request->has('search')) {
+            $searchQuery = $request->input('search');
+            Hunter::where('name', 'LIKE', '%' . $searchQuery . '%');
+        }
+    
+        $hunters = $query->paginate(20);
 
         return response()->json([
             'success' => true,
             'results' => $hunters,
         ]);
+
     }
 
     public function show(string $slug)
@@ -47,13 +55,10 @@ class GuestController extends Controller
 
         $credentials = $request->validated();
 
-
-    // Tentativo di autenticazione dell'utente
     if (Auth::attempt($credentials)) {
-        // Autenticazione riuscita
+
         $user = Auth::user();
         
-        // Genera un token di accesso
         $token = $user->createToken('MyToken')->plainTextToken;
 
         return response()->json([
@@ -62,7 +67,6 @@ class GuestController extends Controller
         ]);
     } 
     else {
-        // Autenticazione fallita
         return response()->json([
             'error' => 'Credenziali non valide'
         ],401);
