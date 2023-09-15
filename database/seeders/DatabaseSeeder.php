@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             HunterSeeder::class,
             BookingMessageSeeder::class,
+            SpecializationHunterSeeder::class,
         ]);
     }
 }
