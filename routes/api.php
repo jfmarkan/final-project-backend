@@ -16,17 +16,19 @@ use App\Http\Controllers\Api\AdminController as ApiAdminController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
+Route::middleware('auth:sanctum')->group(function () {
+    
+// Rotte per gli utenti autenticati
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+        // ADMIN CONTROLLER ROUTES
+        Route::get('admin/hunters', [ApiAdminController::class, 'index'])->name('api.admin.index');
+        Route::get('admin/hunters/{hunter}', [ ApiAdminController::class, 'show' ])->name('api.admin.show');
+    });
 
 // GUEST CONTROLLER ROUTES
 Route::get('/hunters', [ApiGuestController::class, 'index'])->name('api.guest.index');
 Route::get('/hunters/{hunter}', [ ApiGuestController::class, 'show' ])->name('api.guest.show');
-
-
-
-// ADMIN CONTROLLER ROUTES
-Route::get('admin/hunters', [ApiAdminController::class, 'index'])->name('api.admin.index');
-Route::get('admin/hunters/{hunter}', [ ApiAdminController::class, 'show' ])->name('api.admin.show');
