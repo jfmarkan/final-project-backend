@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Http\Requests\AdminUpdateRequest;
 use App\Models\User;
+use App\Models\Hunter;
 
 class AdminController extends Controller
 {
@@ -67,9 +69,15 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(AdminUpdateRequest $request, Hunter $hunter)
     {
-        
+
+        $hunter->update($request->validated());
+
+        return response()->json([
+            'success' => true,
+            'results' => $hunter
+        ]);
     }
 
     /**
