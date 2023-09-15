@@ -6,7 +6,7 @@ use App\Models\SpecializationUser;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class SpecializationUserSeeder extends Seeder
+class SpecializationHunterSeeder extends Seeder
 {
     /**
      * Run the database seeds.
