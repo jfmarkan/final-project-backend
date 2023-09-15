@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Specialization;
-use App\Models\User;
+use App\Models\SpecializationUser;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -335,7 +334,9 @@ class SpecializationUserSeeder extends Seeder
 
         foreach ($specializations as $specializationuser){
             $newSpecialization = new SpecializationUser();
-            
+            $newSpecialization->user_id=$specializationuser['user_id'];
+            $newSpecialization->specialization_id=$specializationuser['specialization_id'];
+            $newSpecialization->save();
         }
     }
 }

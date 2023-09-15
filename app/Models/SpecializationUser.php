@@ -11,5 +11,5 @@ class SpecializationUser extends Model
 
     protected $table = "specialization_user";
 
-    protected $fillable = ['user_id', 'specialization_id']
+    protected $fillable = ['user_id', 'specialization_id'];
 }
