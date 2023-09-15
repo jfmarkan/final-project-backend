@@ -25,8 +25,9 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
         // ADMIN CONTROLLER ROUTES
-        Route::get('admin/hunters', [ApiAdminController::class, 'index'])->name('api.admin.index');
-        Route::get('admin/hunters/{hunter}', [ ApiAdminController::class, 'show' ])->name('api.admin.show');
+        Route::resource('admin/hunters', ApiAdminController::class)->only([
+            'index', 'show', 'store', 'update', 'destroy'
+        ]);
     });
 
 // GUEST CONTROLLER ROUTES
