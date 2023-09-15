@@ -33,3 +33,4 @@ Route::middleware('auth:sanctum')->group(function () {
 // GUEST CONTROLLER ROUTES
 Route::get('/hunters', [ApiGuestController::class, 'index'])->name('api.guest.index');
 Route::get('/hunters/{hunter}', [ ApiGuestController::class, 'show' ])->name('api.guest.show');
+Route::post('/sign-in', [ ApiGuestController::class, 'store'])->name('api.sign-in');
