@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Hunter;
+use App\Models\Specialization;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Hunter;
 
 class HunterSeeder extends Seeder
 {
@@ -173,5 +174,9 @@ class HunterSeeder extends Seeder
             $newHunter->surname = $detail['surname'];
             $newHunter->save();
         }
+
+        $newHunter->specializations()->sync([1]);
+
+        $specializationIds = Specialization::all()->pluck('id')->toArray();
     }
 }
