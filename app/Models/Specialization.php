@@ -12,4 +12,8 @@ class Specialization extends Model
     protected $table = "specializations";
 
     protected $fillable = ['name'];
+
+    public function hunters(){
+        return $this->belongsToMany('App\Models\Hunter');
+    }
 }

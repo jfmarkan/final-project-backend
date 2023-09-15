@@ -12,4 +12,9 @@ class Hunter extends Model
     protected $table = "hunters";
 
     protected $fillable = ['name','surname','picture','cv','phone','address','services','payment'];
+
+    
+    public function specializations(){
+        return $this->belongsToMany('App\Models\Specialization');
+    }
 }

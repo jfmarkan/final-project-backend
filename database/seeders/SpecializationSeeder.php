@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Specialization;
+use App\Models\Hunter;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
