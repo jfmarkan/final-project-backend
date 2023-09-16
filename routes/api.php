@@ -24,13 +24,20 @@ Route::middleware('auth:sanctum')->group(function () {
         return $request->user();
     });
 
+    // Logout per gli utenti autenticati
+
+    Route::post('/logout', [ApiAdminController::class, 'logout'])->name('api.logout');
+    
         // ADMIN CONTROLLER ROUTES
         Route::resource('admin/hunters', ApiAdminController::class)->only([
-            'index', 'show', 'store', 'update', 'destroy'
+            'index', 'show', 'store', 'update', 'destroy','logout'
         ]);
     });
 
 // GUEST CONTROLLER ROUTES
 Route::get('/hunters', [ApiGuestController::class, 'index'])->name('api.guest.index');
 Route::get('/hunters/{hunter}', [ ApiGuestController::class, 'show' ])->name('api.guest.show');
-Route::post('/sign-in', [ ApiGuestController::class, 'store'])->name('api.sign-in');
+
+// DA GUEST CONTROLLER ROUTES PER LOGIN E SIGN IN
+Route::post('/sign-in', [ ApiGuestController::class, 'singIn'])->name('api.sign-in');
+Route::post('/login', [ApiGuestController::class, 'login'])->name('api.login');
