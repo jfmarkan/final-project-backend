@@ -87,4 +87,11 @@ class AdminController extends Controller
     {
         //
     }
+
+    public function logout (Request $request) {
+        $token = $request->user()->token();
+        $token->revoke();
+        $response = ['message' => 'Hai effetuato il Login con successo'];
+        return response($response, 200);
+    }
 }
