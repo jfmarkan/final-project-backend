@@ -74,7 +74,7 @@ return [
     |
     */
 
-    'home' => RouteServiceProvider::HOME,
+    'home' => env('SPA_URL') . '/dashboard',
 
     /*
     |--------------------------------------------------------------------------
@@ -131,7 +131,7 @@ return [
     |
     */
 
-    'views' => true,
+    'views' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -143,9 +143,6 @@ return [
     | these features or you can even remove all of these if you need to.
     |
     */
-    'home' => env('SPA_URL') . '/dashboard',
-
-    'views' => false,
 
     'features' => [
         Features::registration(),
@@ -159,5 +156,4 @@ return [
         //     // 'window' => 0,
         // ]),
     ],
-
 ];
