@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\GuestController as ApiGuestController;
 use App\Http\Controllers\Api\AdminController as ApiAdminController;
 use App\Http\Controllers\TokenController as ApiTokenController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,8 @@ use App\Http\Controllers\TokenController as ApiTokenController;
 
 
 Route::middleware('auth:sanctum')->group(function () {
+
+    Route::get('/users/auth', AuthController::class);
     
 // Rotte per gli utenti autenticati
     Route::get('/users/{id}', function ($id) {
@@ -45,4 +48,6 @@ Route::post('/sign-in', [ ApiGuestController::class, 'singIn'])->name('api.sign-
 Route::post('/login', [ApiGuestController::class, 'login'])->name('api.login');
 
 Route::post('/sanctum/token',  ApiTokenController::class);
+
+
 
