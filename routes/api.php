@@ -1,9 +1,12 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\GuestController as ApiGuestController;
 use App\Http\Controllers\Api\AdminController as ApiAdminController;
+use App\Http\Controllers\Api\TokenController as ApiTokenController;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +21,12 @@ use App\Http\Controllers\Api\AdminController as ApiAdminController;
 
 
 Route::middleware('auth:sanctum')->group(function () {
+
+    Route::get('/users/auth', AuthController::class);
     
 // Rotte per gli utenti autenticati
-    Route::get('/user', function (Request $request) {
-        return $request->user();
+    Route::get('/users/{id}', function ($id) {
+        return User::findOrFail($id);
     });
 
     // Logout per gli utenti autenticati
@@ -41,3 +46,8 @@ Route::get('/hunters/{hunter}', [ ApiGuestController::class, 'show' ])->name('ap
 // DA GUEST CONTROLLER ROUTES PER LOGIN E SIGN IN
 Route::post('/sign-in', [ ApiGuestController::class, 'store'])->name('api.sign-in');
 Route::post('/login', [ApiGuestController::class, 'login'])->name('api.login');
+
+Route::post('/sanctum/token',  ApiTokenController::class);
+
+
+
