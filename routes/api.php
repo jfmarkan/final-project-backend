@@ -39,5 +39,5 @@ Route::get('/hunters', [ApiGuestController::class, 'index'])->name('api.guest.in
 Route::get('/hunters/{hunter}', [ ApiGuestController::class, 'show' ])->name('api.guest.show');
 
 // DA GUEST CONTROLLER ROUTES PER LOGIN E SIGN IN
-Route::post('/sign-in', [ ApiGuestController::class, 'singIn'])->name('api.sign-in');
+Route::post('/sign-in', [ ApiGuestController::class, 'store'])->name('api.sign-in');
 Route::post('/login', [ApiGuestController::class, 'login'])->name('api.login');
