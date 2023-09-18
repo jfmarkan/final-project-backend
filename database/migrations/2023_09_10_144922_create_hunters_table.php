@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('hunters', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->primary();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->string('name', 50);
-            $table->string('surname', 50);
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->string('name', 50)->nullable();
+            $table->string('surname', 50)->nullable();
             $table->text('image')->nullable();
             $table->text('cv')->nullable();
             $table->smallInteger('phone')->nullable();
