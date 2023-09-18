@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\GuestController as ApiGuestController;
 use App\Http\Controllers\Api\AdminController as ApiAdminController;
+use App\Http\Controllers\TokenController as ApiTokenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +43,6 @@ Route::get('/hunters/{hunter}', [ ApiGuestController::class, 'show' ])->name('ap
 // DA GUEST CONTROLLER ROUTES PER LOGIN E SIGN IN
 Route::post('/sign-in', [ ApiGuestController::class, 'singIn'])->name('api.sign-in');
 Route::post('/login', [ApiGuestController::class, 'login'])->name('api.login');
+
+Route::post('/sanctum/token',  ApiTokenController::class);
+
