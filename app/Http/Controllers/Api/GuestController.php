@@ -44,6 +44,9 @@ class GuestController extends Controller
         $data = $request->all();
 
         $user = User::create($data);
+        $hunter = new Hunter();
+        $hunter->user_id = $user->id;
+        $hunter->save();
 
         return response()->json([
             'success' => true
