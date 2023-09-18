@@ -5,8 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\GuestController as ApiGuestController;
 use App\Http\Controllers\Api\AdminController as ApiAdminController;
-use App\Http\Controllers\TokenController as ApiTokenController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Api\TokenController as ApiTokenController;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
