@@ -30,9 +30,9 @@ class GuestController extends Controller
 
     }
 
-    public function show(string $slug)
+    public function show($id)
     {
-        $hunters = Hunter::all()->findOrFail($slug);
+        $hunters = Hunter::all()->findOrFail($id);
 
         return response()->json([
             'success' => true,
