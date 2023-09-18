@@ -13,7 +13,10 @@ class Hunter extends Model
 
     protected $fillable = ['name','surname','picture','cv','phone','address','services','payment'];
 
-    
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
     public function specializations(){
         return $this->belongsToMany('App\Models\Specialization');
     }
