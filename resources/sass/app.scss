@@ -31,13 +31,21 @@ body{
   background-color: rgba(255, 255, 255, 0.4)
 }
 
+.my_character-card{
 
-.my_profile-picture{
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
+  .my_profile-picture{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .my_character-name{
+    font-family: 'Cinzel Decorative', cursive;;
+    color: white;
+  }
 }
+
 
 
 .my_card{
