@@ -14,12 +14,12 @@ body{
     background-color: $background !important;
 }
 
-// body{
-//   background-image: url('../img/bg/dialogo-dei-sopravvissuti-nelle-rovine-dopo-la-guerra-illustrazione-3d.jpg');
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: 200%;
-// }
+ body{
+   background-image: url('../img/bg/dialogo-dei-sopravvissuti-nelle-rovine-dopo-la-guerra-illustrazione-3d.jpg');
+   background-position: center;
+   background-repeat: no-repeat;
+  background-size: 200%; 
+}
 
 
 .my_card{
@@ -43,7 +43,21 @@ body{
   padding: 2rem;
 }
 
-
+.my-wrapper-login{
+  img{
+    width: 100%;
+    height: auto;
+  }
+  p, label, input{
+    font-family: 'Cinzel Decorative', cursive;
+  }
+  label{
+    font-weight: 600;
+  }
+  p{
+    margin-top: 5rem;
+  }
+}
 
 
 
@@ -75,7 +89,7 @@ body{
   background-color: $background;
 }
 
-.btn .icon-hunter {
+.my-btn .icon-hunter {
   position: absolute;
   width: 30px;
   display: flex;
@@ -89,16 +103,16 @@ body{
   }
 }
 
-.btn .text-btn {
+.my-btn .text-btn {
   transform: translateX(55px);
 
 }
 
-.btn:hover .icon-hunter {
+.my-btn:hover .icon-hunter {
   width: 170px;
 }
 
-.btn:hover .text-btn {
+.my-btn:hover .text-btn {
   transition: all 0.5s;
   opacity: 0;
 }
@@ -110,4 +124,3 @@ body{
 .btn:active .icon-hunter {
   transform: scale(0.85);
 }
-
