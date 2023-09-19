@@ -25,6 +25,21 @@ body{
   border-radius: 3rem !important;
 }
 
+.my-wrapper-login{
+  img{
+    width: 100%;
+    height: auto;
+  }
+  p, label, input{
+    font-family: 'Cinzel Decorative', cursive;
+  }
+  label{
+    font-weight: 600;
+  }
+  p{
+    margin-top: 5rem;
+  }
+}
 .my_label{
   font-weight: 700;
 }
