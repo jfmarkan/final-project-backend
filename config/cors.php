@@ -28,6 +28,7 @@ return [
         'email/verification-notification',
     ],
 
+
     'allowed_methods' => ['*'],
 
     'allowed_origins' => ['*'],

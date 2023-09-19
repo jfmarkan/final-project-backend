@@ -32,7 +32,7 @@ class GuestController extends Controller
 
     public function show($id)
     {
-        $hunters = Hunter::all()->findOrFail($id);
+        $hunters = Hunter::where('user_id', '=', $id)->get();
 
         return response()->json([
             'success' => true,
