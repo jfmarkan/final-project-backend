@@ -12,27 +12,26 @@ use Illuminate\Support\Facades\Auth;
 class GuestController extends Controller
 {
     
-    public function index (Request $request){
+    public function index(Request $request){
 
-        $query = Hunter::query();
-
-        if ($request->has('search')) {
-            $searchQuery = $request->input('search');
-            Hunter::where('name', 'LIKE', '%' . $searchQuery . '%');
+        if ($request->has('search')){
+            $hunter = Hunter::where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
         }
-    
-        $hunters = $query->paginate(20);
+         else{
+            $hunter=Hunter::paginate(20);
+        }
+
 
         return response()->json([
-            'success' => true,
-            'results' => $hunters,
+            'success'=>true,
+            'results'=>$hunter
         ]);
 
     }
 
     public function show($id)
     {
-        $hunters = Hunter::all()->findOrFail($id);
+        $hunters = Hunter::where('user_id', '=', $id)->get();
 
         return response()->json([
             'success' => true,
