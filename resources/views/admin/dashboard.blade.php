@@ -6,12 +6,27 @@
         <div class="col-2">
             <div class="row">
                 <div class="col">
-                    <div class="card border-0 bg-transparent mb-3">
+                    <div class="card bg-transparent mb-3">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex justify-content-center">
+                            <li class="list-group-item d-flex justify-content-center bg-transparent my_bg-glass">
                                 <img src="https://i.pinimg.com/564x/d6/04/54/d60454e0eb80e5e14926ce7364e3fa8c.jpg" alt="" class="my_profile-picture">
                             </li>
                             <li class="list-group-item ">Name: </li>
+                            <li class="list-group-item ">Surname: </li>
+                            <li class="list-group-item ">CV: </li>
+                            <li class="list-group-item ">Platinum: </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card bg-transparent mb-3">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-center bg-transparent my_bg-glass">
+                                <img src="https://i.pinimg.com/564x/d6/04/54/d60454e0eb80e5e14926ce7364e3fa8c.jpg" alt="" class="my_profile-picture">
+                            </li>
+                            <li class="list-group-item ">Name: {{}}</li>
                             <li class="list-group-item ">Surname: </li>
                             <li class="list-group-item ">CV: </li>
                             <li class="list-group-item ">Platinum: </li>
@@ -59,10 +74,10 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card bg-transparent">
-                        <div class="card-header">
+                        <div class="card-header my_header-glass">
                             Featured
                         </div>
-                        <div class="card-body">
+                        <div class="card-body my_bg-glass rounded-bottom">
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                             <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -75,9 +90,9 @@
         <div class="col-3">
             <div class="row">
                 <div class="col-12">
-                    <div class="card mb-3">
-                        <div class="card-header">
-                            My Details
+                    <div class="card mb-3 bg-transparent">
+                        <div class="card-header my_header-glass">
+                            Recieved Messages
                         </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
@@ -87,21 +102,6 @@
                                 <li class="list-group-item">Surname: </li>
                                 <li class="list-group-item">CV: </li>
                                 <li class="list-group-item">Platinum: </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            Buy Sponsorship
-                        </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Invitee: </li>
-                                <button class="btn btn-primary">24 hour Membership</button>
-                                <button class="btn btn-primary">72 hour Membership</button>
-                                <button class="btn btn-primary">144 hour Membership</button>
                             </ul>
                         </div>
                     </div>
