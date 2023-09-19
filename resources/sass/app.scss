@@ -43,7 +43,59 @@ body{
   padding: 2rem;
 }
 
+.wrapper-register{
 
+
+.brand-logo{
+  height: 250px;
+}
+
+.title{
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: $background;
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: 600;
+  padding: 1rem;
+}
+
+label{
+  font-family: 'Cinzel Decorative', cursive;
+  color: $background;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+input{
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+  .my_card-body,
+.my_card-header
+{
+  background-color: $secondary;
+  color: $background;
+  border-color: none;
+}
+
+.my_card-header{
+  padding: 2rem;
+  font-family: 'Cinzel Decorative', cursive;
+}
+  .my-card{
+    background-color: $secondary;
+    border-radius: 2rem;
+  }
+
+  .card.header{
+    font-family: Raleway;
+  }
+
+  .btn .text-btn {
+    transform: translateX(55px);
+  
+  }
+}
 
 
 
