@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Hunter;
 use App\Models\Specialization;
 use App\Models\SpecializationUser;
 
@@ -12,9 +13,14 @@ class HunterController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
+    // public function index()
+    // {
+    //     //
+    // }
+    public function dashboard(){
+
+        
+        return view('admin.dashboard');
     }
 
     /**

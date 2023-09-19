@@ -21,12 +21,16 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <div class="card bg-transparent mb-3">
+                    <div class="card my_character-card bg-transparent mb-3">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex justify-content-center bg-transparent my_bg-glass">
+                            <div class="list-group-item d-flex justify-content-center bg-transparent my_bg-glass">
                                 <img src="https://i.pinimg.com/564x/d6/04/54/d60454e0eb80e5e14926ce7364e3fa8c.jpg" alt="" class="my_profile-picture">
-                            </li>
-                            <li class="list-group-item ">Name: {{}}</li>
+                            </div>
+                            <div class="my_character-name my_bg-glass"> 
+                                <h2>{{ auth::user()->hunter['surname'] }}</h2>
+                                <h3>{{ auth::user()->hunter['name'] }}</h3>
+                            </div>
+                            <li class="list-group-item ">Name: </li>
                             <li class="list-group-item ">Surname: </li>
                             <li class="list-group-item ">CV: </li>
                             <li class="list-group-item ">Platinum: </li>
