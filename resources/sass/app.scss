@@ -1,5 +1,5 @@
 // Fonts
-//@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url('https://fonts.bunny.net/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
@@ -10,9 +10,58 @@
 @import 'bootstrap/scss/bootstrap';
 
 
+// main{
+//     background-color: $background !important;
+// }
+
 body{
-    background-color: $background !important;
+  background-image: url('../img/bg/dialogo-dei-sopravvissuti-nelle-rovine-dopo-la-guerra-illustrazione-3d.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 200%;
 }
+
+.my_bg-glass{
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.2)
+}
+
+.my_header-glass{
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.4)
+}
+
+.my_profile-picture{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+.my_card{
+  border: none;
+  border-radius: 3rem !important;
+}
+
+.my_label{
+  font-weight: 700;
+}
+
+.my_card-body,
+.my_card-header
+{
+  background-color: $secondary;
+  color: $background;
+  border-color: none;
+}
+
+.my_card-header{
+  padding: 2rem;
+}
+
+
+
 
 
 /// BOTTONE EFFETTO HOVER
@@ -26,7 +75,7 @@ body{
   border: none;
   transition: all 0.5s ease-in-out;
   font-size: 20px;
-  font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Cinzel Decorative', cursive;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -38,12 +87,12 @@ body{
   }
  }
 
-.my-btn:hover {
+.btn:hover {
   box-shadow: 0 0 20px 0px $secondary;
   background-color: $background;
 }
 
-.my-btn .icon-hunter {
+.btn .icon-hunter {
   position: absolute;
   width: 30px;
   display: flex;
@@ -57,25 +106,25 @@ body{
   }
 }
 
-.my-btn .text-btn {
+.btn .text-btn {
   transform: translateX(55px);
 
 }
 
-.my-btn:hover .icon-hunter {
+.btn:hover .icon-hunter {
   width: 170px;
 }
 
-.my-btn:hover .text-btn {
+.btn:hover .text-btn {
   transition: all 0.5s;
   opacity: 0;
 }
 
-.my-btn:focus {
+.btn:focus {
   outline: none;
 }
 
-.my-btn:active .icon-hunter {
+.btn:active .icon-hunter {
   transform: scale(0.85);
 }
 
