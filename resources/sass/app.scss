@@ -10,16 +10,35 @@
 @import 'bootstrap/scss/bootstrap';
 
 
+// main{
+//     background-color: $background !important;
+// }
+
 body{
-    background-color: $background !important;
+  background-image: url('../img/bg/dialogo-dei-sopravvissuti-nelle-rovine-dopo-la-guerra-illustrazione-3d.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 200%;
 }
 
- body{
-   background-image: url('../img/bg/dialogo-dei-sopravvissuti-nelle-rovine-dopo-la-guerra-illustrazione-3d.jpg');
-   background-position: center;
-   background-repeat: no-repeat;
-  background-size: 200%; 
+.my_bg-glass{
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.2)
 }
+
+.my_header-glass{
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.4)
+}
+
+.my_profile-picture{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
 .my_card{
   border: none;
   border-radius: 3rem !important;
@@ -123,7 +142,7 @@ input{
   border: none;
   transition: all 0.5s ease-in-out;
   font-size: 20px;
-  font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Cinzel Decorative', cursive;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -135,7 +154,7 @@ input{
   }
  }
 
-.my-btn:hover {
+.btn:hover {
   box-shadow: 0 0 20px 0px $secondary;
   background-color: $background;
 }
@@ -168,7 +187,7 @@ input{
   opacity: 0;
 }
 
-.my-btn:focus {
+.btn:focus {
   outline: none;
 }
 
