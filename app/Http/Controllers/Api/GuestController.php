@@ -29,9 +29,9 @@ class GuestController extends Controller
 
     }
 
-    public function show($id)
+    public function show($user_id)
     {
-        $hunters = Hunter::where('user_id', '=', $id)->get();
+        $hunters = Hunter::where('user_id',$user_id)->first();
 
         return response()->json([
             'success' => true,
