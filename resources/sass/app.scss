@@ -14,25 +14,32 @@ main{
     background-color: $background !important;
 }
 
+// body{
+//   background-image: url('../img/bg/dialogo-dei-sopravvissuti-nelle-rovine-dopo-la-guerra-illustrazione-3d.jpg');
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: 200%;
+// }
 
-.card{
+
+.my_card{
   border: none;
   border-radius: 3rem !important;
 }
 
-.label{
+.my_label{
   font-weight: 700;
 }
 
-.card-body,
-.card-header
+.my_card-body,
+.my_card-header
 {
   background-color: $secondary;
   color: $background;
   border-color: none;
 }
 
-.card-header{
+.my_card-header{
   padding: 2rem;
 }
 
@@ -87,7 +94,7 @@ main{
 
 }
 
-.btn:hover .icon {
+.btn:hover .icon-hunter {
   width: 170px;
 }
 
@@ -100,7 +107,7 @@ main{
   outline: none;
 }
 
-.btn:active .icon {
+.btn:active .icon-hunter {
   transform: scale(0.85);
 }
 
