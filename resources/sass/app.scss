@@ -6,3 +6,79 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+
+    .container{
+        //font-family: 'Cinzel Decorative', cursive;
+        font-weight: 600;
+        font-family: 'Raleway';
+    }
+
+    .card{
+      margin: 150px 0 100px;
+    }
+    .btn {
+    margin-bottom: 100px;
+  width: 200px;
+  height: 50px;
+  padding: 0 15px;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.5s ease-in-out;
+  font-size: 20px;
+    font-family: 'Cinzel Decorative', cursive;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  background-color: $background;
+  color: $text;
+
+  &:active{
+    background: $text;
+  }
+ }
+
+.btn:hover {
+  box-shadow: 0 0 20px 0px $secondary;
+  background-color: $background;
+}
+
+.btn .icon {
+  position: absolute;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  filter: invert(1);
+
+  svg{
+    height: 30px;
+  }
+}
+
+.btn .text {
+  transform: translateX(55px);
+
+}
+
+.btn:hover .icon {
+  width: 170px;
+}
+
+.btn:hover .text {
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active .icon {
+  transform: scale(0.85);
+}
+.image-container{
+    width: 600px;
+}
+
