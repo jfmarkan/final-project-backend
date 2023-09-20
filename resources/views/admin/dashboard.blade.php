@@ -109,7 +109,7 @@
                                 </tbody>
                             </table>
                             <div class="d-flex justify-content-end">
-                                <a href="#" class="btn btn-primary">Go to INBOX</a>
+                                <a href="{{ route('inbox')}}" class="btn btn-primary">Go to INBOX</a>
                             </div>
                         </div>
                     </div>
@@ -133,7 +133,7 @@
                                     <tr>
                                         <th scope="row" class="bg-transparent text-white">{{$review->surname}}, {{$review->name}}</th>
                                         @if (empty($review->review))
-                                            <td class="bg-transparent text-white">(No Review)</td>
+                                            <td class="bg-transparent text-white">(No Review Written)</td>
                                         @else
                                             <td class="bg-transparent text-white">{{substr($review->review,0,80)}}...</td>
                                         @endif
@@ -142,9 +142,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <div class="d-flex justify-content-end">>
-                                <a href="#" class="btn btn-primary">Go to INBOX</a>
-                            </div>
                         </div>
                     </div>
                 </div>
