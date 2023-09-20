@@ -98,7 +98,7 @@ class HunterController extends Controller
             'address', 'city', 'state', 'zip'
         ]);
 
-        $address = $collection->implode(', ');
+        $data['address'] = $collection->implode(', ');
 
         $hunter->update($data);
 
