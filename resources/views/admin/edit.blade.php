@@ -28,18 +28,18 @@
                 </div>
                 <div class="col-md-6">
                     <label for="inputCity" class="form-label">City</label>
-                    <input type="text" class="form-control" id="inputCity">
+                    <input type="text" class="form-control" id="city" placeholder="City"  name="city" value="{{ old('city', $hunter->city) }}">
                 </div>
                 <div class="col-md-4">
                     <label for="inputState" class="form-label">State</label>
-                    <select  id="inputState" class="form-select">
+                    <select  id="inputState" class="form-select" id="state" name="state" value="{{ old('state', $hunter->state) }}">
                     <option selected>Choose...</option>
                     <option>...</option>
                     </select>
                 </div>
                 <div class="col-md-2">
                     <label for="inputZip" class="form-label">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
+                    <input type="text" class="form-control" id="zip" name="zip" value="{{ old('zip', $hunter->zip) }}">
                 </div>
                 <div class="mb-3 col">
                     <label for="image" class="form-label">Image</label> 

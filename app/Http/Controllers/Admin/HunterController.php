@@ -78,6 +78,12 @@ class HunterController extends Controller
             'specializations' => ['exists:specializations,id']
         ]);
 
+        $collection = newCollection([
+            'address', 'city', 'state', 'zip'
+        ]);
+
+        $address = $collection->implode(', ');
+
         $post->update($data);
 
         if ($request->has('specializations')){

@@ -10,42 +10,16 @@
 @import 'bootstrap/scss/bootstrap';
 
 
-// main{
-//     background-color: $background !important;
-// }
-
 body{
-  background-image: url('../img/bg/dialogo-dei-sopravvissuti-nelle-rovine-dopo-la-guerra-illustrazione-3d.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 200%;
+    background-color: $background !important;
 }
 
-.my_bg-glass{
-  backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.2)
-}
-
-.my_header-glass{
-  backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.4)
-}
-
-.my_character-card{
-
-  .my_profile-picture{
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .my_character-name{
-    font-family: 'Cinzel Decorative', cursive;;
-    color: white;
-  }
-}
-
+// body{
+//   background-image: url('../img/bg/dialogo-dei-sopravvissuti-nelle-rovine-dopo-la-guerra-illustrazione-3d.jpg');
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: 200%;
+// }
 
 
 .my_card{
@@ -53,21 +27,6 @@ body{
   border-radius: 3rem !important;
 }
 
-.my-wrapper-login{
-  img{
-    width: 100%;
-    height: auto;
-  }
-  p, label, input{
-    font-family: 'Cinzel Decorative', cursive;
-  }
-  label{
-    font-weight: 600;
-  }
-  p{
-    margin-top: 5rem;
-  }
-}
 .my_label{
   font-weight: 700;
 }
@@ -84,59 +43,7 @@ body{
   padding: 2rem;
 }
 
-.wrapper-register{
 
-
-.brand-logo{
-  height: 250px;
-}
-
-.title{
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  color: $background;
-  font-family: 'Cinzel Decorative', cursive;
-  font-weight: 600;
-  padding: 1rem;
-}
-
-label{
-  font-family: 'Cinzel Decorative', cursive;
-  color: $background;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-input{
-  font-family: 'Cinzel Decorative', cursive;
-}
-
-  .my_card-body,
-.my_card-header
-{
-  background-color: $secondary;
-  color: $background;
-  border-color: none;
-}
-
-.my_card-header{
-  padding: 2rem;
-  font-family: 'Cinzel Decorative', cursive;
-}
-  .my-card{
-    background-color: $secondary;
-    border-radius: 2rem;
-  }
-
-  .card.header{
-    font-family: Raleway;
-  }
-
-  .btn .text-btn {
-    transform: translateX(55px);
-  
-  }
-}
 
 
 
@@ -151,7 +58,7 @@ input{
   border: none;
   transition: all 0.5s ease-in-out;
   font-size: 20px;
-    font-family: 'Cinzel Decorative', cursive;
+  font-family: 'Cinzel Decorative', cursive;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -163,12 +70,12 @@ input{
   }
  }
 
-.btn:hover {
+.my-btn:hover {
   box-shadow: 0 0 20px 0px $secondary;
   background-color: $background;
 }
 
-.my-btn .icon-hunter {
+.btn .icon-hunter {
   position: absolute;
   width: 30px;
   display: flex;
@@ -182,24 +89,29 @@ input{
   }
 }
 
-.my-btn .text-btn {
+.btn .text-btn {
   transform: translateX(55px);
 
 }
 
-.my-btn:hover .icon-hunter {
+.btn:hover .icon-hunter {
   width: 170px;
 }
 
-.my-btn:hover .text-btn {
+.btn:hover .text-btn {
   transition: all 0.5s;
   opacity: 0;
 }
 
-.btn:focus {
+.my-btn:focus {
   outline: none;
 }
 
 .btn:active .icon-hunter {
   transform: scale(0.85);
+}
+
+.wrapper-edit{
+  margin: 0 auto;
+
 }
