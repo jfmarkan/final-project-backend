@@ -24,7 +24,7 @@ class GuestController extends Controller
 
         return response()->json([
             'success'=>true,
-            'results'=>$hunter
+            'results'=>$hunters
         ]);
 
     }

@@ -75,7 +75,7 @@ class HunterController extends Controller
         //
         $specializations = Specialization::all();
         $specializationsuser = SpecializationUser::all();
-        return view('admin.edit', compact ('specializations', 'specializationsuser'));
+        return view('admin.edit', compact ('hunter','specializations', 'specializationsuser'));
     }
 
     /**

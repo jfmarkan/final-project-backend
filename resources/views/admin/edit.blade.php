@@ -9,7 +9,7 @@
         <h1>
             Edit Profile
         </h1>
-        <form action="{{ route('admin.update', $hunter->id) }}" method="POST"   enctype="multipart/form-data">
+        <form action="{{ route('update', ['id'=> $hunter->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 

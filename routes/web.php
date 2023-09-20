@@ -24,3 +24,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('admin/edit/{id}', [HunterController::class, 'edit'])->middleware('auth')->name('edit');
 Route::get('admin/dashboard', [HunterController::class, 'dashboard'])->middleware('auth')->name('dashboard');
 Route::get('admin/inbox', [HunterController::class, 'inbox'])->middleware('auth')->name('inbox');
+Route::put('admin/edit/{id}', [HunterController::class, 'update'])->middleware('auth')->name('update');
