@@ -18,6 +18,6 @@ class Hunter extends Model
     }
 
     public function specializations(){
-        return $this->belongsToMany('App\Models\Specialization');
+        return $this->belongsToMany(Specialization::class);
     }
 }

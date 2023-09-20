@@ -41,15 +41,15 @@
                             Your evolution
                         </div>
                         <div class="card-body my_bg-glass rounded-bottom">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <h5 class="card-title">HERE GOES THE GRAPH </h5>
+                            <p class="card-text">Once the statistics are set up and the graph has been set up it will be drawn here.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="row">
                         <div class="col-12 mb-3">
-                            <div class="my_stats-card bg-transparent my_header-glass">
+                            <div class="my_stats-card bg-transparent">
                                 <div class="card-body my_bg-glass rounded text-center">
                                     <p class="card-title p-3">{{$countReviews}}</p>
                                     <p class="card-text pb-2">Reviews Received</p>
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         <div class="col-12 mb-3">
-                            <div class="my_stats-card bg-transparent my_header-glass">
+                            <div class="my_stats-card bg-transparent">
                                 <div class="card-body my_bg-glass rounded text-center">
                                     <p class="card-title p-3">{{substr($averageVote,0,3)}}</p>
                                     <p class="card-text pb-2">Average Vote</p>
@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <div class="col-12 mb-3">
-                            <div class="my_stats-card bg-transparent my_header-glass">
+                            <div class="my_stats-card bg-transparent">
                                 <div class="card-body my_bg-glass rounded text-center">
                                     <p class="card-title p-3">{{$totalMessages}}</p>
                                     <p class="card-text pb-2">Messages Received</p>
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                         <div class="col-12 mb-3">
-                            <div class="my_stats-card bg-transparent my_header-glass">
+                            <div class="my_stats-card bg-transparent">
                                 <div class="card-body my_bg-glass rounded text-center">
                                     <p class="card-title p-3">{{$countReviews}}</p>
                                     <p class="card-text pb-2">Days as Member</p>
