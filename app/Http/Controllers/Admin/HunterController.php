@@ -10,7 +10,6 @@ use App\Models\Review;
 use App\Models\User;
 use App\Models\Specialization;
 use App\Models\SpecializationUser;
-use App\Models\User;
 use Illuminate\Support\Facades\Date;
 
 class HunterController extends Controller
