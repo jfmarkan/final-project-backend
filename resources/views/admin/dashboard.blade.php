@@ -83,24 +83,24 @@
             <div class="row d-flex">
                 <div class="col">
                 <div class="card bg-transparent">
-                        <div class="card-header my_header-glass">
+                        <div class="card-header my_header-glass text-white">
                             Featured
                         </div>
                         <div class="card-body my_bg-glass rounded-bottom">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="bg-transparent">From</th>
-                                        <th scope="col" class="bg-transparent">Subject</th>
-                                        <th scope="col" class="bg-transparent text-center">Date received</th>
+                                        <th scope="col" class="bg-transparent text-white">From</th>
+                                        <th scope="col" class="bg-transparent text-white">Subject</th>
+                                        <th scope="col" class="bg-transparent text-center text-white">Date received</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($messages as $message)
                                     <tr>
-                                        <th scope="row" class="bg-transparent">{{$message->email}}</th>
-                                        <td class="bg-transparent">{{substr($message->message,0,50)}}...</td>
-                                        <td class="bg-transparent text-center">{{substr($message->created_at,0,10)}}</td>
+                                        <th scope="row" class="bg-transparent text-white">{{$message->email}}</th>
+                                        <td class="bg-transparent text-white">{{substr($message->message,0,50)}}...</td>
+                                        <td class="bg-transparent text-center text-white">{{substr($message->created_at,0,10)}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -111,7 +111,7 @@
                 </div>
                 <div class="col">
                     <div class="card bg-transparent">
-                        <div class="card-header my_header-glass">
+                        <div class="card-header my_header-glass text-white">
                             Latest Reviews
                         </div>
                         <div class="card-body my_bg-glass rounded-bottom">
