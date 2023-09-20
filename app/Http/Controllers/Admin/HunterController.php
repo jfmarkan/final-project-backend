@@ -9,6 +9,8 @@ use App\Models\Hunter;
 use App\Models\Review;
 use App\Models\Specialization;
 use App\Models\SpecializationUser;
+use App\Models\User;
+use Illuminate\Support\Facades\Date;
 
 class HunterController extends Controller
 {
@@ -20,10 +22,20 @@ class HunterController extends Controller
     //     //
     // }
     public function dashboard(){
-        $messages = BookingMessage::where('user_id', '=', auth()->user()->id)->paginate(3);
-        $reviews = Review::where('user_id', '=', auth()->user()->id)->paginate(3);
+        $user = User::find(auth()->user()->id);
         
-        return view('admin.dashboard', compact('reviews','messages'));
+
+        $messages = BookingMessage::where('user_id', '=', auth()->user()->id)->paginate(3);
+        $totalMessages = BookingMessage::where('user_id', '=', auth()->user()->id)->count();
+        $reviews = Review::where('user_id', '=', auth()->user()->id)->paginate(3);
+        $countReviews = Review::where('user_id', '=', auth()->user()->id)->count();
+        $sumReviews = Review::where('user_id', '=', auth()->user()->id)->sum('vote');
+        
+
+        $averageVote = (intval($sumReviews)/$countReviews);
+        
+        
+        return view('admin.dashboard', compact('reviews','messages','countReviews','averageVote','totalMessages'));
     }
 
     /**
