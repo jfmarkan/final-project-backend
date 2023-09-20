@@ -31,6 +31,9 @@ class GuestController extends Controller
 
     public function show($user_id)
     {
+        
+        //$hunters = Hunter::with('specializations')->findOrFail($id);
+        
         $hunters = Hunter::where('user_id',$user_id)->first();
 
         return response()->json([
