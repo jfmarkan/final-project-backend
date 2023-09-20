@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Admin\HunterController as HunterController;
 
 /*
@@ -23,4 +22,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('admin/edit', [App\Http\Controllers\HunterController::class, 'edit'])->middleware('auth')->name('edit');
-Route::get('admin/dashboard', [AdminPageController::class, 'dashboard'])->middleware('auth')->name('dashboard');
+Route::get('admin/dashboard', [HunterController::class, 'dashboard'])->middleware('auth')->name('dashboard');

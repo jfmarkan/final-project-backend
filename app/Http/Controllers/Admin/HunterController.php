@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\BookingMessage;
 use Illuminate\Http\Request;
+use App\Models\Hunter;
+use App\Models\Review;
 use App\Models\User;
 use App\Models\Hunter;
 use App\Models\Specialization;
@@ -14,9 +17,15 @@ class HunterController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
+    // public function index()
+    // {
+    //     //
+    // }
+    public function dashboard(){
+        $messages = BookingMessage::where('user_id', '=', auth()->user()->id)->get();
+        $reviews = Review::where('user_id', '=', auth()->user()->id)->get();
+        dump($messages);
+        return view('admin.dashboard', compact('reviews','messages'));
     }
 
     /**
