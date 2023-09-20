@@ -21,9 +21,9 @@ class HunterController extends Controller
     //     //
     // }
     public function dashboard(){
-        $messages = BookingMessage::where('user_id', '=', auth()->user()->id)->get();
-        $reviews = Review::where('user_id', '=', auth()->user()->id)->get();
-        dump($messages);
+        $messages = BookingMessage::where('user_id', '=', auth()->user()->id)->paginate(3);
+        $reviews = Review::where('user_id', '=', auth()->user()->id)->paginate(3);
+        
         return view('admin.dashboard', compact('reviews','messages'));
     }
 

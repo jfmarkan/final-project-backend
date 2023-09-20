@@ -16,7 +16,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <!-- <div class="col">
                     <div class="card my_character-card bg-transparent  my_bg-glass mb-3">
                         <div class="d-flex justify-content-center">
                             <img src="https://i.pinimg.com/564x/d6/04/54/d60454e0eb80e5e14926ce7364e3fa8c.jpg" alt="" class="my_profile-picture my-3">
@@ -26,7 +26,7 @@
                             <h3>{{ auth::user()->hunter['name'] }}</h3>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -83,28 +83,24 @@
             <div class="row d-flex">
                 <div class="col">
                 <div class="card bg-transparent">
-                        <div class="card-header my_header-glass">
+                        <div class="card-header my_header-glass text-white">
                             Featured
                         </div>
                         <div class="card-body my_bg-glass rounded-bottom">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="bg-transparent">From</th>
-                                        <th scope="col" class="bg-transparent">Subject</th>
-                                        <th scope="col" class="bg-transparent text-center">Date received</th>
+                                        <th scope="col" class="bg-transparent text-white">From</th>
+                                        <th scope="col" class="bg-transparent text-white">Subject</th>
+                                        <th scope="col" class="bg-transparent text-center text-white">Date received</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($messages as $message)
                                     <tr>
-                                        <th scope="row" class="bg-transparent">{{$message->email}}</th>
-                                        <td class="bg-transparent">{{substr($message->message,0,50)}}...</td>
-                                        @if 
-                                            <td class="bg-transparent text-center">{{$message->created_at}}</td>
-                                        @else
-                                            <td class="bg-transparent text-center">{{$message->created_at}}</td>
-                                        @endif
+                                        <th scope="row" class="bg-transparent text-white">{{$message->email}}</th>
+                                        <td class="bg-transparent text-white">{{substr($message->message,0,50)}}...</td>
+                                        <td class="bg-transparent text-center text-white">{{substr($message->created_at,0,10)}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -115,7 +111,7 @@
                 </div>
                 <div class="col">
                     <div class="card bg-transparent">
-                        <div class="card-header my_header-glass">
+                        <div class="card-header my_header-glass text-white">
                             Latest Reviews
                         </div>
                         <div class="card-body my_bg-glass rounded-bottom">
@@ -134,7 +130,7 @@
                                         @if (empty($review->review))
                                             <td class="bg-transparent text-white">(No Review)</td>
                                         @else
-                                            <td class="bg-transparent text-white">{{substr($review->review,0,50)}}...</td>
+                                            <td class="bg-transparent text-white">{{substr($review->review,0,80)}}...</td>
                                         @endif
                                         <td class="bg-transparent text-center text-white">{{$review->vote}}</td>
                                     </tr>
