@@ -72,10 +72,13 @@ class HunterController extends Controller
      */
     public function edit(Hunter $hunter)
     {
+        $hunter = Hunter::where('user_id', '=', auth()->user()->id)->get();
+        // dd($hunter);
         //
         $specializations = Specialization::all();
-        $specializationsuser = SpecializationUser::all();
-        return view('admin.edit', compact ('specializations', 'specializationsuser'));
+        $specializationsUser = SpecializationUser::all();
+        // dd($specializations);
+        return view('admin.edit', compact('specializations','specializationsUser','hunter'));
     }
 
     /**

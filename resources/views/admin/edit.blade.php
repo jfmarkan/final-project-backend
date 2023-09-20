@@ -9,37 +9,37 @@
         <h1>
             Edit Profile
         </h1>
-        <form action="{{ route('admin.update', $hunter->id) }}" method="POST"   enctype="multipart/form-data">
+        <form action="{{ route('admin.update', auth::user()->hunter['user_id']) }}" method="POST"   enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
             <div class="row">
                 <div class="col">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="First name" name="name" value="{{ old('name', $hunter->name) }}">
+                    <input type="text" class="form-control" id="name" placeholder="First name" name="name" value="{{ old('name', auth::user()->hunter['name']) }}">
                 </div>
                 <div class="col">
                     <label for="surname" class="form-label">Surname</label>
-                    <input type="text" class="form-control" id="surname" placeholder="Last name"  name="surname" value="{{ old('surname', $hunter->surname) }}">
+                    <input type="text" class="form-control" id="surname" placeholder="Last name"  name="surname" value="{{ old('surname', auth::user()->hunter['surname']) }}">
                 </div>
                 <div class="col-12">
                     <label for="address" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="Apartment, studio, or floor"  name="address" value="{{ old('address', $hunter->address) }}">
+                    <input type="text" class="form-control" id="address" placeholder="Apartment, studio, or floor"  name="address" value="{{ old('address', auth::user()->hunter['address']) }}">
                 </div>
                 <div class="col-md-6">
                     <label for="inputCity" class="form-label">City</label>
-                    <input type="text" class="form-control" id="city" placeholder="City"  name="city" value="{{ old('city', $hunter->city) }}">
+                    
                 </div>
                 <div class="col-md-4">
                     <label for="inputState" class="form-label">State</label>
-                    <select  id="inputState" class="form-select" id="state" name="state" value="{{ old('state', $hunter->state) }}">
+                    
                     <option selected>Choose...</option>
                     <option>...</option>
                     </select>
                 </div>
                 <div class="col-md-2">
                     <label for="inputZip" class="form-label">Zip</label>
-                    <input type="text" class="form-control" id="zip" name="zip" value="{{ old('zip', $hunter->zip) }}">
+                    
                 </div>
                 <div class="mb-3 col">
                     <label for="image" class="form-label">Image</label> 
@@ -50,7 +50,7 @@
                     <input type="file" name="cv" id="cv" class="form-control" placeholder="Upload your image" value="{{ old('image', '') }}"> 
                 </div>
                 @foreach ($specializations as $specialization)
-                    <input type="text" name="specializations[]" class="form-check-input" id="specialization" value="{{ $specialization->id }}" @if ($hunter->specializations->contains($specialization->id)) checked @endif>
+                    <input type="text" name="specializations" class="form-check-input" id="specialization" value="{{ $specialization['id'] }}">
                     <label for="specialization" class="form-check-label me-2 ps-2">
                         {{ $specialization->name }} 
                     </label>
@@ -59,7 +59,7 @@
                 <div class="mb-3">
                     <label for="services" class="form-label">Services</label>
                     <textarea class="form-control" id="services" rows="3" name="services">
-                        {{ old('content', $hunter->services) }}
+                        {{ old('content', auth::user()->hunter['services']) }}
                     </textarea>
                 </div>
 
