@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Specialization;
 use App\Models\SpecializationUser;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Collection;
 
 class HunterController extends Controller
 {
@@ -85,14 +86,15 @@ class HunterController extends Controller
         $data = $request->validate([
             'name' => ['required', 'min:2', 'max:255'],
             'surname' => ['required', 'min:2', 'max:255'],
-            'address' => [ 'min:2', 'max:255'],
+            'address' => [  'max:255'],
             'image' => ['file'],
             'cv' => ['file'],
-            'services' => [ 'min:10'],
+            'services' => [ ],
             'specializations' => ['exists:specializations,id']
         ]);
 
-        $collection = newCollection([
+        //import use Illuminate\Support\Collection; to use collection
+        $collection = collect([
             'address', 'city', 'state', 'zip'
         ]);
 
