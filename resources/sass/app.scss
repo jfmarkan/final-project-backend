@@ -32,7 +32,6 @@ body{
 }
 
 .my_character-card{
-
   .my_profile-picture{
     width: 200px;
     height: 200px;
@@ -43,6 +42,22 @@ body{
   .my_character-name{
     font-family: 'Cinzel Decorative', cursive;;
     color: white;
+  }
+}
+
+.my_stats-card{
+  .card-title{
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 4rem;
+    line-height: 4rem;
+    color: $primary;
+    text-shadow: #FFF 1px 0 15px;
+  }
+  .card-text{
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    color: $white;
   }
 }
 
