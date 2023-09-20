@@ -95,10 +95,10 @@ class HunterController extends Controller
 
         $address = $collection->implode(', ');
 
-        $post->update($data);
+        $hunter->update($data);
 
         if ($request->has('specializations')){
-            $post->specializations()->sync($request->specializations);
+            $hunter->specializations()->sync($request->specializations);
         }
 
     }
