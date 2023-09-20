@@ -72,10 +72,8 @@ class HunterController extends Controller
      */
     public function edit(Hunter $hunter)
     {
-        //
         $specializations = Specialization::all();
-        $specializationsuser = SpecializationUser::all();
-        return view('admin.edit', compact ('hunter','specializations', 'specializationsuser'));
+        return view('admin.edit', compact ('hunter','specializations'));
     }
 
     /**
@@ -83,14 +81,14 @@ class HunterController extends Controller
      */
     public function update(Request $request, Hunter $hunter)
     {
-        //
+        //problem in validation
         $data = $request->validate([
             'name' => ['required', 'min:2', 'max:255'],
             'surname' => ['required', 'min:2', 'max:255'],
-            'address' => ['required', 'min:2', 'max:255'],
-            'image' => ['url:https'],
-            'cv' => ['url:https'],
-            'services' => ['required', 'min:10'],
+            'address' => [ 'min:2', 'max:255'],
+            'image' => ['file'],
+            'cv' => ['file'],
+            'services' => [ 'min:10'],
             'specializations' => ['exists:specializations,id']
         ]);
 
@@ -106,6 +104,7 @@ class HunterController extends Controller
             $hunter->specializations()->sync($request->specializations);
         }
 
+        return redirect()->route('dashboard');
     }
 
     /**

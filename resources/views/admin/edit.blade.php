@@ -3,17 +3,18 @@
 @section('content')
 
 <section class="wrapper-edit">
-    <div class="container-fluid d-flex flex-column">
+    <div class="container d-flex flex-column">
         <img class="align-self-center" src="../assets/navbar-logo.png" alt="" srcset="">
 
         <h1>
             Edit Profile
         </h1>
-        <form action="{{ route('update', ['id'=> $hunter->id]) }}" method="POST" enctype="multipart/form-data">
+        
+        <form action="{{ route('update', $hunter) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
-            <div class="row">
+            <div class="row d-flex align-items-center">
                 <div class="col">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control" id="name" placeholder="First name" name="name" value="{{ old('name', $hunter->name) }}">
@@ -41,22 +42,24 @@
                     <label for="inputZip" class="form-label">Zip</label>
                     <input type="text" class="form-control" id="zip" name="zip" value="{{ old('zip', $hunter->zip) }}">
                 </div>
-                <div class="mb-3 col">
+                <div class="mb-3 col-6">
                     <label for="image" class="form-label">Image</label> 
                     <input type="file" name="image" id="image" class="form-control" placeholder="Upload your image" value="{{ old('image', '') }}"> 
                 </div>
-                <div class="mb-3 col">
+                <div class="mb-3 col-6">
                     <label for="image" class="form-label">CV</label> 
                     <input type="file" name="cv" id="cv" class="form-control" placeholder="Upload your image" value="{{ old('image', '') }}"> 
                 </div>
                 @foreach ($specializations as $specialization)
-                    <input type="text" name="specializations[]" class="form-check-input" id="specialization" value="{{ $specialization->id }}" @if ($hunter->specializations->contains($specialization->id)) checked @endif>
+                <div class="col-3">
+                    <input type="checkbox" name="specializations[]" class="form-check-input" id="specialization" value="{{ $specialization->id }}" @if ($hunter->specializations->contains($specialization->id)) checked @endif>
                     <label for="specialization" class="form-check-label me-2 ps-2">
                         {{ $specialization->name }} 
                     </label>
+                </div>
                 @endforeach
 
-                <div class="mb-3">
+                <div class="m-2">
                     <label for="services" class="form-label">Services</label>
                     <textarea class="form-control" id="services" rows="3" name="services">
                         {{ old('content', $hunter->services) }}
@@ -71,8 +74,9 @@
                 </span>
                 <span class="text">Edit Profile</span>
             </button>
-        </div>
-    </form>
+        
+        </form>
+    </div>
 </section>
 
 @endsection

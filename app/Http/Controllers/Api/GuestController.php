@@ -24,14 +24,17 @@ class GuestController extends Controller
 
         return response()->json([
             'success'=>true,
-            'results'=>$hunters
+            'results'=>$hunter
         ]);
 
     }
 
     public function show($user_id)
     {
-        $hunters = Hunter::where('user_id',$user_id)->first();
+        
+        //$hunter->load('specializations')   Load per caricare la relazione, non ha bisogno del where(user_id) e va cambiato a show(Hunter $hunter)
+        // https://laravel.com/docs/10.x/eloquent#primary-keys
+        $hunters = Hunter::with('specializations')->where('user_id',$user_id)->first();
 
         return response()->json([
             'success' => true,
