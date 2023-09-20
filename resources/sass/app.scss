@@ -11,15 +11,37 @@
 
 
 body{
-    background-color: $background !important;
+  background-image: url('../img/bg/dialogo-dei-sopravvissuti-nelle-rovine-dopo-la-guerra-illustrazione-3d.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 200%;
 }
 
-// body{
-//   background-image: url('../img/bg/dialogo-dei-sopravvissuti-nelle-rovine-dopo-la-guerra-illustrazione-3d.jpg');
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: 200%;
-// }
+.my_bg-glass{
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.2)
+}
+
+.my_header-glass{
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.4)
+}
+
+.my_character-card{
+
+  .my_profile-picture{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .my_character-name{
+    font-family: 'Cinzel Decorative', cursive;;
+    color: white;
+  }
+}
+
 
 
 .my_card{
