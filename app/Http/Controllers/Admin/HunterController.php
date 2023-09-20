@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Models\Hunter;
 use App\Models\Review;
 use App\Models\User;
-use App\Models\Hunter;
 use App\Models\Specialization;
 use App\Models\SpecializationUser;
 
