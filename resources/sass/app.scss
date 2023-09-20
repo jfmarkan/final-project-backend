@@ -14,6 +14,7 @@ body{
   background-image: url('../img/bg/dialogo-dei-sopravvissuti-nelle-rovine-dopo-la-guerra-illustrazione-3d.jpg');
   background-position: center center;
   background-repeat: no-repeat;
+
 }
 .my_bg-glass{
   backdrop-filter: blur(10px);
@@ -57,6 +58,22 @@ body{
   border-radius: 3rem !important;
 }
 
+// Login
+.my-wrapper-login{
+  img{
+    width: 100%;
+    height: auto;
+  }
+  p, label, input{
+    font-family: 'Cinzel Decorative', cursive;
+  }
+  label{
+    font-weight: 600;
+  }
+  p{
+    margin-top: 5rem;
+  }
+}
 .my_label{
   font-weight: 700;
 }
@@ -72,6 +89,10 @@ body{
 .my_card-header{
   padding: 2rem;
 }
+
+//Register
+
+//Register
 
 
 
@@ -141,7 +162,59 @@ body{
   transform: scale(0.85);
 }
 
-.wrapper-edit{
-  margin: 0 auto;
+// HOME 
 
+.wrapper-home{
+  button{
+    width: 40%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .my-btn .text-btn {
+    transform: translateX(55px);
+  }
+  .my-btn:hover .icon-hunter {
+    width: calc(40% - 15px);
+  }
+  .card{
+    opacity: (0.7);
+    background-color: $primary;
+    font-weight: 600;
+  }
+  .card-header{
+    text-align: center;
+    border-color: transparent;
+    font-family: 'Cinzel Decorative', cursive;
+    background-color: $secondary;
+    color: black;
+    opacity: (1);
+  }
+
+  .card-body{
+    text-align: center;
+    font-family: 'Cinzel Decorative', cursive;
+    color: black;
+  }
+}
+
+//Sponsorship
+.sponsorship{
+  font-family: 'Cinzel Decorative', cursive;
+  flex-wrap: wrap;
+  h2, h4, a{
+    color: white;
+    text-align: center;
+    margin: 1rem;
+  }
+  h4{
+    padding: 2rem;
+  }
+  h2{
+    margin-top: 4rem;
+  }
+  a{
+    font-weight: 600;
+    font-size: x-large;
+  }
 }
