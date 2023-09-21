@@ -9,7 +9,7 @@ class SpecializationUser extends Model
 {
     use HasFactory;
 
-    protected $table = "specialization_hunter";
+    protected $table = "hunter_specialization";
 
     protected $fillable = ['user_id', 'specialization_id'];
 }

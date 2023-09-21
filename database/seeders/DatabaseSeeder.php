@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             HunterSeeder::class,
             BookingMessageSeeder::class,
             ReviewSeeder::class,
-            SpecializationHunterSeeder::class,
+            HunterSpecializationSeeder::class,
         ]);
     }
 }

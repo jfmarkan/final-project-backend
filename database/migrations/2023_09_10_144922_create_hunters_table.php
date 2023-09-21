@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('hunters', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->primary();
+            $table->id();
+            // $table->unsignedBigInteger('user_id')->primary();
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('name', 50)->nullable();
             $table->string('surname', 50)->nullable();

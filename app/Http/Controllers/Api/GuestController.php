@@ -15,19 +15,30 @@ class GuestController extends Controller
     public function index(Request $request){
 
         if ($request->has('search')){
-            $hunter = Hunter::where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
+            $hunters = Hunter::with('specializations')->where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
         }
          else{
-            $hunter=Hunter::paginate(20);
+            $hunters =Hunter::with('specializations')->paginate(20);
         }
-
-
+    
         return response()->json([
-            'success'=>true,
-            'results'=>$hunter
+            'success'=> true,
+            'results'=> $hunters
         ]);
-
     }
+    
+
+    // public function select(Request $request){
+
+    //     $hunters = Hunter::with('specializations')->where('user_id',$user_id)->first();
+        
+
+    //     return response()->json([
+    //         'success'=>true,
+    //         'results'=>$hunter
+    //     ]);
+
+    // }
 
     public function show($user_id)
     {
