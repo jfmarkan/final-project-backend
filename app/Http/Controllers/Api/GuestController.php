@@ -12,10 +12,12 @@ use Illuminate\Support\Facades\Auth;
 class GuestController extends Controller
 {
     
-    public function index(Request $request){
+    public function index(Request $request, Hunter $hunter){
+
+        
 
         if ($request->has('search')){
-            $hunter = Hunter::where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
+            $hunter = Hunter::with('specializations')->where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
         }
          else{
             $hunter=Hunter::paginate(20);
