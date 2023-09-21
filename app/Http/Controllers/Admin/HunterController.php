@@ -12,6 +12,7 @@ use App\Models\Specialization;
 use App\Models\SpecializationUser;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 
 class HunterController extends Controller
 {
@@ -92,6 +93,12 @@ class HunterController extends Controller
             'services' => [ ],
             'specializations' => ['exists:specializations,id']
         ]);
+
+        if ($request->hasFile('image')){
+            Storage::delete($hunter->image);
+            $img_path = Storage::put('uploads/hunters', $request['image']);
+            $data['image'] = $img_path;
+        }
 
         //import use Illuminate\Support\Collection; to use collection
         $collection = collect([

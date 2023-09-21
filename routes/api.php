@@ -45,5 +45,8 @@ Route::post('/sign-in', [ ApiGuestController::class, 'store'])->name('api.sign-i
 Route::post('/login', [ApiGuestController::class, 'login'])->name('api.login');
 
 
+Route::post('/contact-form', [ ApiGuestController::class, 'update'])->name('api.contact-form');
+
+
 
 
