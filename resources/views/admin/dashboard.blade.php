@@ -15,7 +15,9 @@
                             <h3>{{ auth::user()->hunter['name'] }}</h3>
                         </div>
                         <div class="d-flex justify-content-center mb-3">
-                            <a href="" class="btn btn-primary">Edit Profile</a>
+                            <a href="{{('edit/'. auth::user()->hunter['user_id'])}}" class="btn btn-primary">
+                                Edit your profile
+                            </a>
                         </div>
                     </div>
                 </div>

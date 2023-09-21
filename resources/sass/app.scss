@@ -57,7 +57,9 @@ body{
   border: none;
   border-radius: 3rem !important;
 }
-
+.my-mini-logo{
+  height: 90px
+}
 // Login
 .my-wrapper-login{
   img{
@@ -90,15 +92,7 @@ body{
   padding: 2rem;
 }
 
-//Register
-
-//Register
-
-
-
-
-
-/// BOTTONE EFFETTO HOVER
+// BOTTONE EFFETTO HOVER
 
     .my-btn {
   margin-bottom: 100px;
@@ -218,7 +212,17 @@ body{
     font-size: x-large;
   }
 }
-
+// EDIT 
 .wrapper-edit>*{
   color: white;
+  font-family: 'Cinzel Decorative', cursive;
+  label, input, select, textarea{
+    margin-bottom: 10px;;
+  }
+  .my-btn{
+    width: 150px;
+  }
+  .btn:hover .icon-hunter {
+    width: 120px;
+  }
 }

@@ -21,7 +21,7 @@
         <nav class="navbar navbar-expand-md my_header-glass shadow-sm z-3">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('resources/img/hunters tooth and talon_bersaglio.png') }}" alt="Hunters Logo">
+                    <img src="{{ Vite::asset('resources/img/hunters tooth and talon_intero.png') }}" alt="Hunters Logo" class="my-mini-logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -50,19 +50,12 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        <i class="fa-solid fa-right-from-bracket text-primary"></i>
-                                    </a>
-
-                                
-                                    
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fa-solid fa-right-from-bracket fa-2xl text-primary"></i>
+                                </a> 
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </li>
                         @endguest
                     </ul>
