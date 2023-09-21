@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Requests\LoginRequest;
 use App\Models\Hunter;
 use App\Models\User;
+use App\Models\Specialization;
 use Illuminate\Support\Facades\Auth;
 
 class GuestController extends Controller
 {
-    
-    public function index(Request $request){
+   public function index(Request $request){
 
         if ($request->has('search')){
             $hunters = Hunter::with('specializations')->where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
@@ -26,19 +26,29 @@ class GuestController extends Controller
             'results'=> $hunters
         ]);
     }
+    public function select(Request $request)
+    {
+        // Ottieni il valore del parametro "specialization" dalla richiesta
+        $selectedValue = $request->input('specialization');
     
+        // Effettua la query di filtro basata sul valore selezionato
+        $specializations = Specialization::where('name', 'LIKE', '%' . $selectedValue . '%')->get();
+    
+        return response()->json([
+            'success' => true,
+            'results' => $specializations
+        ]);
 
-    // public function select(Request $request){
+        $hunters = $specialization->hunters;
 
-    //     $hunters = Hunter::with('specializations')->where('user_id',$user_id)->first();
-        
-
-    //     return response()->json([
-    //         'success'=>true,
-    //         'results'=>$hunter
-    //     ]);
-
-    // }
+        return response()->json([
+            'success' => true,
+            'results' => $hunters,
+        ]);
+    }
+    
+    
+    
 
     public function show($user_id)
     {
