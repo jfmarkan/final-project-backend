@@ -17,7 +17,7 @@ class GuestController extends Controller
         if ($request->has('search')){
             $hunter = Hunter::where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
         }
-         else{
+        else{
             $hunter=Hunter::paginate(20);
         }
 

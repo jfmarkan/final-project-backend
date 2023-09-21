@@ -30,8 +30,10 @@ class HunterController extends Controller
         $countReviews = Review::where('user_id', '=', auth()->user()->id)->count();
         $sumReviews = Review::where('user_id', '=', auth()->user()->id)->sum('vote');
 
-        $averageVote = (intval($sumReviews)/$countReviews);
-        
+        if($countReviews > 0){
+            $averageVote = (intval($sumReviews)/$countReviews);
+        }
+        $averageVote = '-';
         
         return view('admin.dashboard', compact('reviews','messages','countReviews','averageVote','totalMessages'));
     }
