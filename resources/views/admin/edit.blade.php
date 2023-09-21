@@ -48,7 +48,7 @@
                 </div>
                 <div class="mb-3 col-6">
                     <label for="image" class="form-label">CV</label> 
-                    <input type="file" name="cv" id="cv" class="form-control" placeholder="Upload your image" value="{{ old('image', '') }}"> 
+                    <input type="file" name="cv" id="cv" class="form-control" placeholder="Upload your cv" value="{{ old('cv', '') }}"> 
                 </div>
                 @foreach ($specializations as $specialization)
                 <div class="col-3">
