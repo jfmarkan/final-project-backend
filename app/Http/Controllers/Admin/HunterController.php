@@ -85,9 +85,9 @@ class HunterController extends Controller
         //problem in validation
         $data = $request->validate([
             'name' => ['required', 'min:2', 'max:255'],
-            'surname' => ['required', 'min:2', 'max:255'],
-            'address' => [  'max:255'],
-            'image' => ['file'],
+            'surname' => ['max:255'],
+            'address' => ['max:255'],
+            'image' => ['image'],
             'cv' => ['file'],
             'services' => [ ],
             'specializations' => ['exists:specializations,id']

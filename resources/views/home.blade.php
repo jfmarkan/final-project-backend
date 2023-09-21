@@ -12,10 +12,6 @@
                         </div>
                     @endif
 
-                    <h1>
-                        welcome back {{ auth::user()->hunter['name'] }}
-                    </h1>
-                </div>
                 <div class="card-body">
                     <p>
                     "Welcome, valiant warrior, to the realm of epic adventures and mystical quests! Your journey begins here, where heroes are forged and legends are written. Arm yourself with courage and valor as you embark on a quest like no other. The fate of this fantastical world lies in your hands. Are you ready to embrace your destiny and write your own heroic saga?"
