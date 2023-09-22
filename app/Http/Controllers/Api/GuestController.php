@@ -20,9 +20,8 @@ class GuestController extends Controller
             $hunter = Hunter::with('specializations')->where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
         }
          else{
-            $hunter=Hunter::paginate(20);
+            $hunter=Hunter::with('specializations')->paginate(20);
         }
-
 
         return response()->json([
             'success'=>true,
