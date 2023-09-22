@@ -11,6 +11,7 @@ class Hunter extends Model
 
     protected $table = "hunters";
 
+    protected $fillable = ['name','surname','image','cv','phone','address','services',];
     protected $fillable = ['name','surname','image','cv','phone','address','services','payment'];
 
     //stesso risultato di $hunters = Hunter::with('specializations')->where('user_id',$user_id)->first(); nel controller
@@ -22,6 +23,6 @@ class Hunter extends Model
     }
 
     public function specializations(){
-        return $this->belongsToMany(Specialization::class, 'specialization_hunter', 'user_id', 'specialization_id');
+        return $this->belongsToMany(Specialization::class, 'hunter_specialization', 'hunter_id', 'specialization_id');
     }
 }

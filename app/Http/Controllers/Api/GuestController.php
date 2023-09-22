@@ -7,28 +7,54 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Requests\LoginRequest;
 use App\Models\Hunter;
 use App\Models\User;
+use App\Models\Specialization;
 use Illuminate\Support\Facades\Auth;
 
 class GuestController extends Controller
 {
-    
-    public function index(Request $request, Hunter $hunter){
-
-        
+    public function index(Request $request){
 
         if ($request->has('search')){
-            $hunter = Hunter::with(['specializations'])->join('users')->where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
+            $hunters = Hunter::with('specializations')->where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
         }
          else{
-            $hunter=Hunter::with(['specializations'])->paginate(20);
+            $hunters =Hunter::with('specializations')->paginate(20);
         }
 
         return response()->json([
             'success'=>true,
-            'results'=>$hunter
+            'results'=>$hunters
         ]);
-
     }
+    
+  public function select(Request $request)
+{
+    // Ottieni il valore del parametro "specialization" dalla richiesta
+    $selectedValue = $request->input('specialization');
+    
+    // Effettua la query per ottenere la specializzazione
+    $specialization = Specialization::where('name', 'LIKE', '%' . $selectedValue . '%')->first();
+    
+    if (!$specialization) {
+        return response()->json([
+            'success' => true,
+            'results' => [], // Nessuna specializzazione trovata
+        ]);
+    }
+    
+    // Ora ottieni gli hunters associati a questa specializzazione
+    $hunters = $specialization->hunters;
+
+    
+    return response()->json([
+        'success' => true,
+        'results' => $hunters,
+    ]);
+    
+}
+
+
+    
 
     public function show($user_id)
     {
