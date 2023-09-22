@@ -11,6 +11,8 @@ use App\Models\User;
 use App\Models\Specialization;
 use App\Models\SpecializationUser;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 
 class HunterController extends Controller
 {
@@ -29,8 +31,11 @@ class HunterController extends Controller
         $countReviews = Review::where('user_id', '=', auth()->user()->id)->count();
         $sumReviews = Review::where('user_id', '=', auth()->user()->id)->sum('vote');
 
-        $averageVote = (intval($sumReviews)/$countReviews);
-        
+        if($countReviews > 0){
+            $averageVote = (intval($sumReviews)/$countReviews);
+        }else{
+            $averageVote = '-';
+        }
         
         return view('admin.dashboard', compact('reviews','messages','countReviews','averageVote','totalMessages'));
     }
@@ -57,6 +62,38 @@ class HunterController extends Controller
     public function store(Request $request)
     {
         //
+        //problem in validation
+        $data = $request->validate([
+            'name' => ['required', 'min:2', 'max:255'],
+            'surname' => ['max:255'],
+            'address' => ['max:255'],
+            'image' => ['image'],
+            'cv' => ['file'],
+            'services' => [ ],
+            'specializations' => ['exists:specializations,id']
+        ]);
+
+        if ($request->hasFile('image')){
+            $img_path = Storage::put('uploads/hunters', $request['image']);
+            $data['image'] = $img_path;
+        }
+
+        //import use Illuminate\Support\Collection; to use collection
+        $collection = collect([
+            'address', 'city', 'state', 'zip'
+        ]);
+
+        $address = $collection->implode(', ');
+        $data['user_id'] = Auth::user()->id;
+        $newHunter = Hunter::create($data);
+        
+        $newHunter->save();
+
+        if ($request->has('specializations')){
+            $hunter->specializations()->sync($request->specializations);
+        }
+
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -72,10 +109,8 @@ class HunterController extends Controller
      */
     public function edit(Hunter $hunter)
     {
-        //
         $specializations = Specialization::all();
-        $specializationsuser = SpecializationUser::all();
-        return view('admin.edit', compact ('specializations', 'specializationsuser'));
+        return view('admin.edit', compact ('hunter','specializations'));
     }
 
     /**
@@ -83,18 +118,25 @@ class HunterController extends Controller
      */
     public function update(Request $request, Hunter $hunter)
     {
-        //
+        //problem in validation
         $data = $request->validate([
             'name' => ['required', 'min:2', 'max:255'],
-            'surname' => ['required', 'min:2', 'max:255'],
-            'address' => ['required', 'min:2', 'max:255'],
-            'image' => ['url:https'],
-            'cv' => ['url:https'],
-            'services' => ['required', 'min:10'],
+            'surname' => ['max:255'],
+            'address' => ['max:255'],
+            'image' => ['image'],
+            'cv' => ['file'],
+            'services' => [ ],
             'specializations' => ['exists:specializations,id']
         ]);
 
-        $collection = newCollection([
+        if ($request->hasFile('image')){
+            Storage::delete($hunter->image);
+            $img_path = Storage::put('uploads/hunters', $request['image']);
+            $data['image'] = $img_path;
+        }
+
+        //import use Illuminate\Support\Collection; to use collection
+        $collection = collect([
             'address', 'city', 'state', 'zip'
         ]);
 
@@ -106,6 +148,7 @@ class HunterController extends Controller
             $hunter->specializations()->sync($request->specializations);
         }
 
+        return redirect()->route('dashboard');
     }
 
     /**

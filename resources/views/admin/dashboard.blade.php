@@ -3,52 +3,48 @@
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-between">
-        <div class="col-2">
+        <div class="col">
             <div class="row">
-                <div class="col">
+                <div class="col-sm-12 col-lg-4 col-xl-2">
                     <div class="card my_character-card bg-transparent my_bg-glass mb-3">
                         <div class="d-flex justify-content-center">
-                            <img src="{{auth::user()->hunter['image']}}" alt="" class="my_profile-picture my-3">
+                            @if (is_null(auth::user()->hunter['image']))
+                                <img src="{{ asset('img/no-avatar.jpeg') }}" alt="CUCU" class="my_profile-picture my-3">
+                            @elseif (str_starts_with((auth::user()->hunter['image']), 'http' ))
+                                <img src="{{auth::user()->hunter['image']}}" alt="auth::user()->hunter['name']'s profile picture" class="my_profile-picture my-3">
+                            @else
+                                <img src="{{ asset('storage/' . auth::user()->hunter['image']) }}" alt="" class="my_profile-picture my-3">
+                            @endif
                         </div>
-                        <div class="my_character-name text-center"> 
-                            <h2>{{ auth::user()->hunter['surname'] }}</h2>
-                            <h3>{{ auth::user()->hunter['name'] }}</h3>
+                        <div class="my_character-name text-center">
+                            
+                                <h2>{{ auth::user()->hunter['surname'] }}</h2>
+                                <h3>{{ auth::user()->hunter['name'] }}</h3>
+                            
                         </div>
                         <div class="d-flex justify-content-center mb-3">
-                            <a href="#" class="btn btn-primary">Edit Profile</a>
+                            <a href="{{ route('edit', auth::user()->hunter['user_id']) }}" class="btn btn-primary">Edit Profile</a>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col">
-                    <div class="card my_character-card bg-transparent  my_bg-glass mb-3">
-                        <div class="d-flex justify-content-center">
-                            <img src="https://i.pinimg.com/564x/d6/04/54/d60454e0eb80e5e14926ce7364e3fa8c.jpg" alt="" class="my_profile-picture my-3">
-                        </div>
-                        <div class="my_character-name text-center"> 
-                            <h2>{{ auth::user()->hunter['surname'] }}</h2>
-                            <h3>{{ auth::user()->hunter['name'] }}</h3>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
-        </div>
-
-        <div class="col-10">
-            <div class="row mb-3">
-                <div class="col-10">
-                    <div class="card bg-transparent">
-                        <div class="card-header my_header-glass">
-                            Your evolution
-                        </div>
-                        <div class="card-body my_bg-glass rounded-bottom">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
+                <div class="col-sm-12 col-lg-8 mb-3">
                     <div class="row">
-                        <div class="col-12 mb-3">
+                        <div class="col">
+                            <div class="card bg-transparent">
+                                <div class="card-header my_header-glass">
+                                    Your evolution
+                                </div>
+                                <div class="card-body my_bg-glass rounded-bottom">
+                                    <h5 class="card-title">Special title treatment</h5>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-xl-2">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-3 col-xl-12 mb-3">
                             <div class="my_stats-card bg-transparent my_header-glass">
                                 <div class="card-body my_bg-glass rounded text-center">
                                     <p class="card-title p-3">{{$countReviews}}</p>
@@ -56,7 +52,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 mb-3">
+                        <div class="col-sm-6 col-lg-3 col-xl-12 mb-3">
                             <div class="my_stats-card bg-transparent my_header-glass">
                                 <div class="card-body my_bg-glass rounded text-center">
                                     <p class="card-title p-3">{{substr($averageVote,0,3)}}</p>
@@ -64,7 +60,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 mb-3">
+                        <div class="col-sm-6 col-lg-3 col-xl-12 mb-3">
                             <div class="my_stats-card bg-transparent my_header-glass">
                                 <div class="card-body my_bg-glass rounded text-center">
                                     <p class="card-title p-3">{{$totalMessages}}</p>
@@ -72,7 +68,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 mb-3">
+                        <div class="col-sm-6 col-lg-3 col-xl-12 mb-3">
                             <div class="my_stats-card bg-transparent my_header-glass">
                                 <div class="card-body my_bg-glass rounded text-center">
                                     <p class="card-title p-3">{{$countReviews}}</p>
@@ -84,10 +80,10 @@
                 </div>
             </div>
             <div class="row d-flex">
-                <div class="col">
+                <div class="col-xl-5 offset-xl-2 mb-3">
                 <div class="card bg-transparent">
                         <div class="card-header my_header-glass text-white">
-                            Featured
+                            Latest Messages
                         </div>
                         <div class="card-body my_bg-glass rounded-bottom">
                             <table class="table">
@@ -114,7 +110,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-xl-5">
                     <div class="card bg-transparent">
                         <div class="card-header my_header-glass text-white">
                             Latest Reviews

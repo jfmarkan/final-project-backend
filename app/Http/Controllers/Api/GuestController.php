@@ -12,15 +12,16 @@ use Illuminate\Support\Facades\Auth;
 class GuestController extends Controller
 {
     
-    public function index(Request $request){
+    public function index(Request $request, Hunter $hunter){
+
+        
 
         if ($request->has('search')){
-            $hunter = Hunter::where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
+            $hunter = Hunter::with(['specializations'])->join('users')->where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
         }
          else{
-            $hunter=Hunter::paginate(20);
+            $hunter=Hunter::with(['specializations'])->paginate(20);
         }
-
 
         return response()->json([
             'success'=>true,
@@ -32,9 +33,9 @@ class GuestController extends Controller
     public function show($user_id)
     {
         
-        //$hunters = Hunter::with('specializations')->findOrFail($id);
-        
-        $hunters = Hunter::where('user_id',$user_id)->first();
+        //$hunter->load('specializations')   Load per caricare la relazione, non ha bisogno del where(user_id) e va cambiato a show(Hunter $hunter)
+        // https://laravel.com/docs/10.x/eloquent#primary-keys
+        $hunters = Hunter::with(['specializations','user'])->where('user_id',$user_id)->first();
 
         return response()->json([
             'success' => true,
