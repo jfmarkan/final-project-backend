@@ -15,32 +15,32 @@ class GuestController extends Controller
     public function index(Request $request){
 
         if ($request->has('search')){
-            $hunter = Hunter::where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
+            $hunters = Hunter::with('specializations')->where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
         }
          else{
-            $hunter=Hunter::paginate(20);
+            $hunters =Hunter::with('specializations')->paginate(20);
         }
 
 
         return response()->json([
             'success'=>true,
-            'results'=>$hunter
+            'results'=>$hunters
         ]);
     }
     
- public function select(Request $request)
-{
-    // Ottieni il valore dell'input select dalla richiesta
-    $selectedValue = $request->input('search');
-
-    // Effettua la query di filtro basata sul valore selezionato
-    $specializations = Specialization::where('name', 'LIKE', '%' . $selectedValue . '%')->get();
-
-    return response()->json([
-        'success' => true,
-        'results' => $specializations
-    ]);
-}
+    public function select(Request $request)
+    {
+        // Ottieni il valore del parametro "specialization" dalla richiesta
+        $selectedValue = $request->input('specialization');
+    
+        // Effettua la query di filtro basata sul valore selezionato
+        $specializations = Specialization::where('name', 'LIKE', '%' . $selectedValue . '%')->get();
+    
+        return response()->json([
+            'success' => true,
+            'results' => $specializations
+        ]);
+    }
 
     
 
