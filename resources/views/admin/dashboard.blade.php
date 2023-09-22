@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-lg-8">
+                <div class="col-sm-12 col-lg-8 mb-3">
                     <div class="row">
                         <div class="col">
                             <div class="card bg-transparent">
@@ -85,7 +85,7 @@
                 <div class="col">
                 <div class="card bg-transparent">
                         <div class="card-header my_header-glass text-white">
-                            Featured
+                            Latest Messages
                         </div>
                         <div class="card-body my_bg-glass rounded-bottom">
                             <table class="table">
