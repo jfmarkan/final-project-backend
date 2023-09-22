@@ -11,8 +11,7 @@ class Hunter extends Model
 
     protected $table = "hunters";
 
-    protected $fillable = ['name','surname','image','cv','phone','address','services',];
-    protected $fillable = ['name','surname','image','cv','phone','address','services','payment'];
+    protected $fillable = ['name','surname','image','cv','phone','address','services'];
 
     //stesso risultato di $hunters = Hunter::with('specializations')->where('user_id',$user_id)->first(); nel controller
     // https://laravel.com/docs/10.x/eloquent#primary-keys
