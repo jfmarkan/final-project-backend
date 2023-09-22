@@ -14,6 +14,6 @@ class Specialization extends Model
     protected $fillable = ['name'];
 
     public function hunters(){
-        return $this->belongsToMany('App\Models\Hunter');
+        return $this->belongsToMany(Hunter::class, 'specialization_hunter', 'specialization_id', 'user_id');
     }
 }

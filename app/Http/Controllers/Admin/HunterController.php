@@ -12,6 +12,7 @@ use App\Models\Specialization;
 use App\Models\SpecializationUser;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 
 class HunterController extends Controller
 {
@@ -58,6 +59,38 @@ class HunterController extends Controller
     public function store(Request $request)
     {
         //
+        //problem in validation
+        $data = $request->validate([
+            'name' => ['required', 'min:2', 'max:255'],
+            'surname' => ['max:255'],
+            'address' => ['max:255'],
+            'image' => ['image'],
+            'cv' => ['file'],
+            'services' => [ ],
+            'specializations' => ['exists:specializations,id']
+        ]);
+
+        if ($request->hasFile('image')){
+            $img_path = Storage::put('uploads/hunters', $request['image']);
+            $data['image'] = $img_path;
+        }
+
+        //import use Illuminate\Support\Collection; to use collection
+        $collection = collect([
+            'address', 'city', 'state', 'zip'
+        ]);
+
+        $address = $collection->implode(', ');
+        $data['user_id'] = Auth::user()->id;
+        $newHunter = Hunter::create($data);
+        
+        $newHunter->save();
+
+        if ($request->has('specializations')){
+            $hunter->specializations()->sync($request->specializations);
+        }
+
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -92,6 +125,12 @@ class HunterController extends Controller
             'services' => [ ],
             'specializations' => ['exists:specializations,id']
         ]);
+
+        if ($request->hasFile('image')){
+            Storage::delete($hunter->image);
+            $img_path = Storage::put('uploads/hunters', $request['image']);
+            $data['image'] = $img_path;
+        }
 
         //import use Illuminate\Support\Collection; to use collection
         $collection = collect([

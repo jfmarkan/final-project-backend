@@ -8,7 +8,7 @@
                 <div class="col">
                     <div class="card my_character-card bg-transparent my_bg-glass mb-3">
                         <div class="d-flex justify-content-center">
-                            <img src="{{auth::user()->hunter['image']}}" alt="" class="my_profile-picture my-3">
+                            <img src="{{asset('storage/' . auth::user()->hunter['image'])}}" alt="" class="my_profile-picture my-3">
                         </div>
                         <div class="my_character-name text-center"> 
                             <h2>{{ auth::user()->hunter['surname'] }}</h2>
