@@ -8,7 +8,7 @@
                 <div class="col-sm-12 col-lg-4 col-xl-2">
                     <div class="card my_character-card bg-transparent my_bg-glass mb-3">
                         <div class="d-flex justify-content-center">
-                            @if (is_null(auth::user()->hunter['image']))
+                            @if (is_null(auth::user()->hunter->image))
                                 <img src="{{ asset('img/no-avatar.jpeg') }}" alt="CUCU" class="my_profile-picture my-3">
                             @elseif (str_starts_with((auth::user()->hunter['image']), 'http' ))
                                 <img src="{{auth::user()->hunter['image']}}" alt="auth::user()->hunter['name']'s profile picture" class="my_profile-picture my-3">

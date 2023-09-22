@@ -70,6 +70,7 @@ class GuestController extends Controller
     }
 
     public function store (Request $request){
+
         $data = $request->all();
 
         $user = User::create($data);

@@ -15,7 +15,7 @@ class Hunter extends Model
 
     //stesso risultato di $hunters = Hunter::with('specializations')->where('user_id',$user_id)->first(); nel controller
     // https://laravel.com/docs/10.x/eloquent#primary-keys
-    protected $primaryKey = 'user_id'; 
+
 
     public function user(){
         return $this->belongsTo(User::class);
