@@ -12,42 +12,36 @@ use Illuminate\Support\Facades\Auth;
 
 class GuestController extends Controller
 {
-   public function index(Request $request){
+    public function index(Request $request){
 
         if ($request->has('search')){
-            $hunters = Hunter::with('specializations')->where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
+            $hunter = Hunter::where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
         }
          else{
-            $hunters =Hunter::with('specializations')->paginate(20);
+            $hunter=Hunter::paginate(20);
         }
-    
-        return response()->json([
-            'success'=> true,
-            'results'=> $hunters
-        ]);
-    }
-    public function select(Request $request)
-    {
-        // Ottieni il valore del parametro "specialization" dalla richiesta
-        $selectedValue = $request->input('specialization');
-    
-        // Effettua la query di filtro basata sul valore selezionato
-        $specializations = Specialization::where('name', 'LIKE', '%' . $selectedValue . '%')->get();
-    
-        return response()->json([
-            'success' => true,
-            'results' => $specializations
-        ]);
 
-        $hunters = $specialization->hunters;
 
         return response()->json([
-            'success' => true,
-            'results' => $hunters,
+            'success'=>true,
+            'results'=>$hunter
         ]);
     }
     
-    
+ public function select(Request $request)
+{
+    // Ottieni il valore dell'input select dalla richiesta
+    $selectedValue = $request->input('search');
+
+    // Effettua la query di filtro basata sul valore selezionato
+    $specializations = Specialization::where('name', 'LIKE', '%' . $selectedValue . '%')->get();
+
+    return response()->json([
+        'success' => true,
+        'results' => $specializations
+    ]);
+}
+
     
 
     public function show($user_id)

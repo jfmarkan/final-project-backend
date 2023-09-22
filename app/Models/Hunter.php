@@ -18,6 +18,6 @@ class Hunter extends Model
     }
 
     public function specializations(){
-        return $this->belongsToMany(Specialization::class);
+        return $this->belongsToMany(Specialization::class, 'hunter_specialization', 'hunter_id', 'specialization_id');
     }
 }
