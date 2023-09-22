@@ -32,8 +32,9 @@ class HunterController extends Controller
 
         if($countReviews > 0){
             $averageVote = (intval($sumReviews)/$countReviews);
+        }else{
+            $averageVote = '-';
         }
-        $averageVote = '-';
         
         return view('admin.dashboard', compact('reviews','messages','countReviews','averageVote','totalMessages'));
     }
