@@ -11,7 +11,7 @@ class Hunter extends Model
 
     protected $table = "hunters";
 
-    protected $fillable = ['name','surname','picture','cv','phone','address','services','payment'];
+    protected $fillable = ['name','surname','image','cv','phone','address','services',];
 
     public function user(){
         return $this->belongsTo(User::class);
