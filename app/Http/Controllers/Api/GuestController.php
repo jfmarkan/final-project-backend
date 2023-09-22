@@ -17,10 +17,10 @@ class GuestController extends Controller
         
 
         if ($request->has('search')){
-            $hunter = Hunter::with('specializations')->where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
+            $hunter = Hunter::with(['specializations'])->join('users')->where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
         }
          else{
-            $hunter=Hunter::with('specializations')->paginate(20);
+            $hunter=Hunter::with(['specializations'])->paginate(20);
         }
 
         return response()->json([
@@ -35,7 +35,7 @@ class GuestController extends Controller
         
         //$hunter->load('specializations')   Load per caricare la relazione, non ha bisogno del where(user_id) e va cambiato a show(Hunter $hunter)
         // https://laravel.com/docs/10.x/eloquent#primary-keys
-        $hunters = Hunter::with('specializations')->where('user_id',$user_id)->first();
+        $hunters = Hunter::with(['specializations','user'])->where('user_id',$user_id)->first();
 
         return response()->json([
             'success' => true,

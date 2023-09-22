@@ -14,8 +14,30 @@ body{
   background-image: url('../img/bg/dialogo-dei-sopravvissuti-nelle-rovine-dopo-la-guerra-illustrazione-3d.jpg');
   background-position: center center;
   background-repeat: no-repeat;
+  background-size: fit;
 
 }
+
+.my_header-brand{
+  .my_header-logo{
+    width: 40px;
+    margin-right: .7rem;
+  }
+  .my_header-title,
+  .my_header-subtitle{
+    font-family: 'Cinzel Decorative', cursive;
+  }
+  .my_header-title{
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1rem;
+  }
+  .my_header-subtitle{
+    font-size: .5rem;
+    font-weight: 700;
+  }
+}
+
 .my_bg-glass{
   backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.2)
@@ -24,8 +46,8 @@ body{
   backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.4)
 }
-.my_character-card{
 
+.my_character-card{
   .my_profile-picture{
     width: 200px;
     height: 200px;
@@ -33,10 +55,11 @@ body{
     object-fit: cover;
   }
   .my_character-name{
-    font-family: 'Cinzel Decorative', cursive;;
+    font-family: 'Cinzel Decorative', cursive;
     color: white;
   }
 }
+
 .my_stats-card{
   .card-title{
     font-family: 'Cinzel Decorative', cursive;

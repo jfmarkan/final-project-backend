@@ -43,46 +43,44 @@
                     </div>
                 </div>
                 <div class="col-sm-12 col-xl-2">
-
-                            <div class="row">
-                                <div class="col-sm-6 col-lg-3 col-xl-12 mb-3">
-                                    <div class="my_stats-card bg-transparent my_header-glass">
-                                        <div class="card-body my_bg-glass rounded text-center">
-                                            <p class="card-title p-3">{{$countReviews}}</p>
-                                            <p class="card-text pb-2">Reviews Received</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-3 col-xl-12 mb-3">
-                                    <div class="my_stats-card bg-transparent my_header-glass">
-                                        <div class="card-body my_bg-glass rounded text-center">
-                                            <p class="card-title p-3">{{substr($averageVote,0,3)}}</p>
-                                            <p class="card-text pb-2">Average Vote</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-3 col-xl-12 mb-3">
-                                    <div class="my_stats-card bg-transparent my_header-glass">
-                                        <div class="card-body my_bg-glass rounded text-center">
-                                            <p class="card-title p-3">{{$totalMessages}}</p>
-                                            <p class="card-text pb-2">Messages Received</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-3 col-xl-12 mb-3">
-                                    <div class="my_stats-card bg-transparent my_header-glass">
-                                        <div class="card-body my_bg-glass rounded text-center">
-                                            <p class="card-title p-3">{{$countReviews}}</p>
-                                            <p class="card-text pb-2">Days as Member</p>
-                                        </div>
-                                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-3 col-xl-12 mb-3">
+                            <div class="my_stats-card bg-transparent my_header-glass">
+                                <div class="card-body my_bg-glass rounded text-center">
+                                    <p class="card-title p-3">{{$countReviews}}</p>
+                                    <p class="card-text pb-2">Reviews Received</p>
                                 </div>
                             </div>
                         </div>
-                    
+                        <div class="col-sm-6 col-lg-3 col-xl-12 mb-3">
+                            <div class="my_stats-card bg-transparent my_header-glass">
+                                <div class="card-body my_bg-glass rounded text-center">
+                                    <p class="card-title p-3">{{substr($averageVote,0,3)}}</p>
+                                    <p class="card-text pb-2">Average Vote</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3 col-xl-12 mb-3">
+                            <div class="my_stats-card bg-transparent my_header-glass">
+                                <div class="card-body my_bg-glass rounded text-center">
+                                    <p class="card-title p-3">{{$totalMessages}}</p>
+                                    <p class="card-text pb-2">Messages Received</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3 col-xl-12 mb-3">
+                            <div class="my_stats-card bg-transparent my_header-glass">
+                                <div class="card-body my_bg-glass rounded text-center">
+                                    <p class="card-title p-3">{{$countReviews}}</p>
+                                    <p class="card-text pb-2">Days as Member</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="row d-flex">
-                <div class="col">
+                <div class="col-xl-5 offset-xl-2 mb-3">
                 <div class="card bg-transparent">
                         <div class="card-header my_header-glass text-white">
                             Latest Messages
@@ -112,7 +110,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-xl-5">
                     <div class="card bg-transparent">
                         <div class="card-header my_header-glass text-white">
                             Latest Reviews

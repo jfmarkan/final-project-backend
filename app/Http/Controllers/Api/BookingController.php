@@ -28,7 +28,7 @@ class BookingController extends Controller
         }
 
         $bookingMessage = BookingMessage::create($data);
-        Mail::to('')->send( new NewContact($bookingMessage));
+        Mail::to('$user->email')->send( new NewContact($bookingMessage));
 
         return response()->json([
             'success' => true
