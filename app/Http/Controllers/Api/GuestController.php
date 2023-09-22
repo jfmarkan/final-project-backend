@@ -28,19 +28,32 @@ class GuestController extends Controller
         ]);
     }
     
-    public function select(Request $request)
-    {
-        // Ottieni il valore del parametro "specialization" dalla richiesta
-        $selectedValue = $request->input('specialization');
+  public function select(Request $request)
+{
+    // Ottieni il valore del parametro "specialization" dalla richiesta
+    $selectedValue = $request->input('specialization');
     
-        // Effettua la query di filtro basata sul valore selezionato
-        $specializations = Specialization::where('name', 'LIKE', '%' . $selectedValue . '%')->get();
+    // Effettua la query per ottenere la specializzazione
+    $specialization = Specialization::where('name', 'LIKE', '%' . $selectedValue . '%')->first();
     
+    if (!$specialization) {
         return response()->json([
             'success' => true,
-            'results' => $specializations
+            'results' => [], // Nessuna specializzazione trovata
         ]);
     }
+    
+    // Ora ottieni gli hunters associati a questa specializzazione
+    $hunters = $specialization->hunters;
+
+    
+    return response()->json([
+        'success' => true,
+        'results' => $hunters,
+    ]);
+    
+}
+
 
     
 
