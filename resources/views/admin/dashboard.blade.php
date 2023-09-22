@@ -3,9 +3,9 @@
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-between">
-        <div class="col-sm-12 col-lg-2">
+        <div class="col">
             <div class="row">
-                <div class="col">
+                <div class="col-sm-12 col-lg-4 col-xl-2">
                     <div class="card my_character-card bg-transparent my_bg-glass mb-3">
                         <div class="d-flex justify-content-center">
                             @if (is_null(auth::user()->hunter['image']))
@@ -27,69 +27,59 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col">
-                    <div class="card my_character-card bg-transparent  my_bg-glass mb-3">
-                        <div class="d-flex justify-content-center">
-                            <img src="https://i.pinimg.com/564x/d6/04/54/d60454e0eb80e5e14926ce7364e3fa8c.jpg" alt="" class="my_profile-picture my-3">
-                        </div>
-                        <div class="my_character-name text-center"> 
-                            <h2>{{ auth::user()->hunter['surname'] }}</h2>
-                            <h3>{{ auth::user()->hunter['name'] }}</h3>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
-        </div>
-
-        <div class="col-sm-12 col-lg-10">
-            <div class="row">
-                <div class="col-sm-12 col-lg-10 mb-3">
-                    <div class="card bg-transparent">
-                        <div class="card-header my_header-glass">
-                            Your evolution
-                        </div>
-                        <div class="card-body my_bg-glass rounded-bottom">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-lg-2">
+                <div class="col-sm-12 col-lg-8">
                     <div class="row">
-                        <div class="col-sm-6 col-lg-12 mb-3">
-                            <div class="my_stats-card bg-transparent my_header-glass">
-                                <div class="card-body my_bg-glass rounded text-center">
-                                    <p class="card-title p-3">{{$countReviews}}</p>
-                                    <p class="card-text pb-2">Reviews Received</p>
+                        <div class="col">
+                            <div class="card bg-transparent">
+                                <div class="card-header my_header-glass">
+                                    Your evolution
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-12 mb-3">
-                            <div class="my_stats-card bg-transparent my_header-glass">
-                                <div class="card-body my_bg-glass rounded text-center">
-                                    <p class="card-title p-3">{{substr($averageVote,0,3)}}</p>
-                                    <p class="card-text pb-2">Average Vote</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-12 mb-3">
-                            <div class="my_stats-card bg-transparent my_header-glass">
-                                <div class="card-body my_bg-glass rounded text-center">
-                                    <p class="card-title p-3">{{$totalMessages}}</p>
-                                    <p class="card-text pb-2">Messages Received</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-12 mb-3">
-                            <div class="my_stats-card bg-transparent my_header-glass">
-                                <div class="card-body my_bg-glass rounded text-center">
-                                    <p class="card-title p-3">{{$countReviews}}</p>
-                                    <p class="card-text pb-2">Days as Member</p>
+                                <div class="card-body my_bg-glass rounded-bottom">
+                                    <h5 class="card-title">Special title treatment</h5>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-12 col-xl-2">
+
+                            <div class="row">
+                                <div class="col-sm-6 col-lg-3 col-xl-12 mb-3">
+                                    <div class="my_stats-card bg-transparent my_header-glass">
+                                        <div class="card-body my_bg-glass rounded text-center">
+                                            <p class="card-title p-3">{{$countReviews}}</p>
+                                            <p class="card-text pb-2">Reviews Received</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-3 col-xl-12 mb-3">
+                                    <div class="my_stats-card bg-transparent my_header-glass">
+                                        <div class="card-body my_bg-glass rounded text-center">
+                                            <p class="card-title p-3">{{substr($averageVote,0,3)}}</p>
+                                            <p class="card-text pb-2">Average Vote</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-3 col-xl-12 mb-3">
+                                    <div class="my_stats-card bg-transparent my_header-glass">
+                                        <div class="card-body my_bg-glass rounded text-center">
+                                            <p class="card-title p-3">{{$totalMessages}}</p>
+                                            <p class="card-text pb-2">Messages Received</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-3 col-xl-12 mb-3">
+                                    <div class="my_stats-card bg-transparent my_header-glass">
+                                        <div class="card-body my_bg-glass rounded text-center">
+                                            <p class="card-title p-3">{{$countReviews}}</p>
+                                            <p class="card-text pb-2">Days as Member</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
             </div>
             <div class="row d-flex">
                 <div class="col">
