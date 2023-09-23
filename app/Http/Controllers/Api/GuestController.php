@@ -17,41 +17,67 @@ class GuestController extends Controller
         if ($request->has('search')){
             $hunters = Hunter::with('specializations')->where('name', 'LIKE', '%' . $request->search . '%')->paginate(20);
         }
-         else{
+        else{
             $hunters =Hunter::with('specializations')->paginate(20);
         }
 
         return response()->json([
             'success'=>true,
-            'results'=>$hunters
+            'results'=>$hunters,
         ]);
     }
-    
-  public function select(Request $request)
-{
-    // Ottieni il valore del parametro "specialization" dalla richiesta
-    $selectedValue = $request->input('specialization');
-    
-    // Effettua la query per ottenere la specializzazione
-    $specialization = Specialization::where('name', 'LIKE', '%' . $selectedValue . '%')->first();
-    
-    if (!$specialization) {
+
+    public function specializations(){
+        
+        $specializations = Specialization::all();
+
         return response()->json([
             'success' => true,
-            'results' => [], // Nessuna specializzazione trovata
+            'results' => $specializations,
         ]);
     }
+
+    public function filterBySpecialization(Request $request){
+
+        $selectedValue = $request->input('specialization');
+        if($selectedValue){
+            $filteredHunters = Hunter::whereHas('specializations', function ($query) use ($selectedValue) {
+                $query->where('name', 'LIKE', '%' . $selectedValue . '%');
+            })->paginate(20);
+        } else {
+            $filteredHunters = Hunter::paginate(20);
+        }
+        
+        return response()->json([
+            'success' => true,
+            'results' => $filteredHunters,
+        ]);
+    }
+
+//     public function select(Request $request){
+//     // Ottieni il valore del parametro "specialization" dalla richiesta
+//     $selectedValue = $request->input('specialization');
     
-    // Ora ottieni gli hunters associati a questa specializzazione
-    $hunters = $specialization->hunters;
+//     // Effettua la query per ottenere la specializzazione
+//     $specialization = Specialization::where('name', 'LIKE', '%' . $selectedValue . '%')->first();
+    
+//     if (!$specialization) {
+//         return response()->json([
+//             'success' => true,
+//             'results' => [], // Nessuna specializzazione trovata
+//         ]);
+//     }
+    
+//     // Ora ottieni gli hunters associati a questa specializzazione
+//     $hunters = $specialization->hunters;
 
     
-    return response()->json([
-        'success' => true,
-        'results' => $hunters,
-    ]);
+//     return response()->json([
+//         'success' => true,
+//         'results' => $hunters,
+//     ]);
     
-}
+// }
 
 
     

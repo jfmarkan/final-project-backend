@@ -39,7 +39,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
 // GUEST CONTROLLER ROUTES
 Route::get('/hunters', [ApiGuestController::class, 'index'])->name('api.guest.index');
-Route::get('/specializations', [ApiGuestController::class, 'select'])->name('api.guest.select');
+Route::get('/specializations', [ApiGuestController::class, 'specializations'])->name('api.guest.specializations');
+Route::get('/hunterBySpec', [ApiGuestController::class, 'filterBySpecialization'])->name('api.guest.hunterBySpec');
 Route::get('/hunters/{hunter}', [ ApiGuestController::class, 'show' ])->name('api.guest.show');
 
 // DA GUEST CONTROLLER ROUTES PER LOGIN E SIGN IN
