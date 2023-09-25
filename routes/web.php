@@ -36,3 +36,5 @@ Route::get('admin/sponsorship/billing', [SponsorshipController::class, 'billing'
 Route::post('admin/sponsorship/payment', [SponsorshipController::class, 'processPayment'])->middleware('auth')->name('sponsorship.processPayment');
 
 Route::get('admin/sponsorship/error', [SponsorshipController::class, 'error'])->middleware('auth')->name('sponsorship.error');
+
+Route::get('admin/reviews', [HunterController::class, 'reviews'])->middleware('auth')->name('reviews');
