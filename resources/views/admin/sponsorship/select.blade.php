@@ -12,7 +12,7 @@
 
         <form method="get" action="{{ route('sponsorship.billing') }}" id="sponsorship-selection">
             @csrf
-            <input type="" name="sponsorship_id" id="sponsorship_id" value="">
+            <input type="hidden" name="sponsorship_id" id="sponsorship_id" value="">
         </form>
 
         <div class="promos">  
