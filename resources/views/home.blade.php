@@ -11,7 +11,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                </div>
                 <div class="card-body">
                     <p>
                     "Welcome, valiant warrior, to the realm of epic adventures and mystical quests! Your journey begins here, where heroes are forged and legends are written. Arm yourself with courage and valor as you embark on a quest like no other. The fate of this fantastical world lies in your hands. Are you ready to embrace your destiny and write your own heroic saga?"
@@ -31,63 +31,78 @@
             </div>
         </div>
         <div class="sponsorship">
-            <h2>
-                Remember to become our partner
-            </h2>
-            <div class="d-flex justify-content-around row">
-                <div class="col-4">
-                    <div class="card">
-                        <h4>
-                            Basic sponsorship
-                        </h4>
-                        <ul class="list-group">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Hour of sponsorship
-                                <span class="badge bg-primary rounded-pill">24h</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                You will appear on the Homepage among the top results.
-                            </li>
-                            <a class="btn btn-primary" href="#" role="button">2,99$</a>
-                        </ul> 
-                    </div>
+            <div class="container my_sponsorship-wrapper">
+    <div class="card bg-transparent my_bg-glass">
+        <h1 class="title">
+            Unlock the Full Potential of Your Profile!
+        </h1>
+        <h3 class="subtitle">
+            Introducing our Exclusive Sponsorship Program
+        </h3>
+
+        <form method="get" action="{{ route('sponsorship.billing') }}" id="sponsorship-selection">
+            @csrf
+            <input type="hidden" name="sponsorship_id" id="sponsorship_id" value="">
+        </form>
+
+        <div class="promos">  
+            <div class="promo">
+                <div class="deal">
+                    <span>Premium</span>
+                    <span>72 hour Sponsorship</span>
                 </div>
-                <div class="col-4">
-                    <div class="card">
-                        <h4>
-                            Premium sponsorship
-                        </h4>
-                        <ul class="list-group">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Hour of sponsorship
-                                <span class="badge bg-primary rounded-pill">72h</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                You will appear on the Homepage among the top results.
-                            </li>
-                            <a class="btn btn-primary" href="#" role="button">5,99$</a>
-                        </ul> 
+                <span class="price">€ 5,99</span>
+                    <ul class="features">
+                        <li>Tune up your</li>
+                        <li>profile</li>
+                        <li>and SHIFT your views!</li>   
+                    </ul>
+                    <div class="d-flex justify-content-center my-3">
+                        <button type="button" onclick="selected('2')" class="btn btn-primary">Hire Premium</button>
                     </div>
+            </div>
+            <div class="promo scale">
+                <div class="deal">
+                    <span>Plus</span>
+                    <span>144 hour Sponsorship</span>
                 </div>
-                <div class="col-4">
-                    <div class="card">
-                        <h4>
-                            Deluxe sponsorship
-                        </h4>
-                        <ul class="list-group">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Hour of sponsorship
-                                <span class="badge bg-primary rounded-pill">144h</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                You will appear on the Homepage among the top results.
-                            </li>
-                            <a class="btn btn-primary" href="#" role="button">9,99$</a>
-                        </ul> 
-                    </div>
+                <span class="price">€ 9,99</span>
+                <ul class="features">
+                    <li>Get the Most</li>
+                    <li>out of our</li>
+                    <li>Sponsorship Program</li>   
+                </ul>
+                <div class="d-flex justify-content-center my-3">
+                    <button onclick="selected('3')" class="btn btn-primary">Hire PLUS</button>
+                </div>
+            </div>
+            <div class="promo">
+                <div class="deal">
+                    <span>Basic</span>
+                    <span>24 hour Sponsorship</span>
+                </div>
+                <span class="price">€ 2,99</span>
+                <ul class="features">
+                    <li>See how your</li>
+                    <li>visits grow!</li>
+                    <li>And more...</li>   
+                </ul>
+                <div class="d-flex justify-content-center my-3">
+                    <button type="button" onclick="selected('1')" class="btn btn-primary">Hire Basic</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
+        </div>
+    </div>
+</div>
+@section('custom-scripts-tail')
+<script>
+    function selected(sponsorship) {
+        document.getElementById('sponsorship_id').value = sponsorship;
+        document.getElementById('sponsorship-selection').submit();
+    }
+</script>
 @endsection

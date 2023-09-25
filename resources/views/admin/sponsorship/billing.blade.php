@@ -142,6 +142,9 @@
                     <div class="d-flex justify-content-center">
                         <button type="submit" class="btn btn-primary">Pay Sponsorship</button>
                     </div>
+                    <div>
+                        <a href="{{ route('dashboard') }}" class="btn btn-primary"><i class="fa-solid fa-circle-chevron-left"></i> Dashboard</a>
+                    </div>
                 </form>
             </div>
             
