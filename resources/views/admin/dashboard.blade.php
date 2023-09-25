@@ -138,6 +138,9 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div class="d-flex justify-content-end">
+                                <a href="{{ route('reviews')}}" class="btn btn-primary">Go to Review</a>
+                            </div>
                         </div>
                     </div>
                 </div>

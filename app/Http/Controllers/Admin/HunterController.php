@@ -48,6 +48,12 @@ class HunterController extends Controller
         return view('admin.inbox', compact('messages','totalMessages'));
     }
 
+    public function reviews(){
+        $review = Review::where('user_id', '=', auth()->user()->id)->paginate(20);
+        
+        return view('admin.review', compact('review'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

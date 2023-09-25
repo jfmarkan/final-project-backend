@@ -25,3 +25,4 @@ Route::get('admin/edit/{hunter}', [HunterController::class, 'edit'])->middleware
 Route::get('admin/dashboard', [HunterController::class, 'dashboard'])->middleware('auth')->name('dashboard');
 Route::get('admin/inbox', [HunterController::class, 'inbox'])->middleware('auth')->name('inbox');
 Route::put('admin/edit/{hunter}', [HunterController::class, 'update'])->middleware('auth')->name('update');
+Route::get('admin/reviews', [HunterController::class, 'reviews'])->middleware('auth')->name('reviews');
