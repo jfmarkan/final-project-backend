@@ -55,10 +55,9 @@
                             <tbody>
                                 @foreach ($review as $reviews)
                                 <tr>
-                                    <th scope="row" class="bg-transparent text-white">{{$reviews->name}}</th>
+                                    <th scope="row" class="bg-transparent text-white">{{$reviews->name}} {{$reviews->surname}}</th>
                                     <td class="bg-transparent text-white">{{($reviews->review)}}...</td>
                                     <td class="bg-transparent text-center text-white">{{($reviews->vote)}}</td>
-
                                 </tr>
                                 @endforeach
                             </tbody>
