@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\GuestController as ApiGuestController;
 use App\Http\Controllers\Api\AdminController as ApiAdminController;
-use App\Http\Controllers\Api\LeadController as ApiBookingControler;
+use App\Http\Controllers\Api\BookingController as ApiBookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,4 +49,5 @@ Route::post('/login', [ApiGuestController::class, 'login'])->name('api.login');
 // Route::post('/contact-form', [ ApiGuestController::class, 'update'])->name('api.contact-form');
 
 //MAIL ROUTE
-Route::post('/bookingMessage', [ApiBookingControler::class, 'store'])->name('api.bookingMessage');
+//Route::get('/bookingMessage', [ApiBookingController::class, 'index'])->name('api.index.bookingMessage');
+Route::post('/bookingMessage', [ApiBookingController::class, 'store'])->name('api.bookingMessage');

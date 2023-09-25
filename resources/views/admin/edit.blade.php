@@ -11,7 +11,6 @@
         </h1>
         
         <form action="{{ route('update', $hunter) }}" method="POST" enctype="multipart/form-data">
-        <form action="{{ route('admin.update', $hunter->user_id) }}" method="POST"   enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
