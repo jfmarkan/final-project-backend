@@ -2,20 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
-
+use App\Http\Controllers\Controller;
 use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ReviewController extends Controller
-{   
-    public function index(){
-
-    }
-
-    public function create(){
-
-    }
-
+{
+    
+    
     public function store(Request $request){
         $data = $request->all();
 
@@ -33,14 +28,12 @@ class ReviewController extends Controller
             ]);
         }
 
-        $review = Review::create($data);
+        $reviews = Reviews::create($data);
         return response()->json([
-            'success' => true
+
+            'success' => true,
+            'results'=>$data
         ]);
-
-    }
-
-    public function show(Rewiew $review){
 
     }
 }
