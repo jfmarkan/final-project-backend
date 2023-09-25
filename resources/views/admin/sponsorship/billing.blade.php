@@ -134,13 +134,25 @@
                                 <label for="securitycode">Security Code</label>
                                 <input id="securitycode" type="text" inputmode="numeric" name="credit_card[cvv]">
                             </div>
+                            
+                        </div>
+                        <div class="d-flex justify-content-center mb-2">
+                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-credit-card me-1"></i>Pay Sponsorship</button>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary">Pay Sponsorship</button>
+                            <div class="d-flex">
+                                <a href="{{ route('dashboard') }}" class="btn btn-primary"><i class="fa-solid fa-circle-left me-1"></i>Back to Dashboard</a>
+                            </div>
+                            <div class="mx-2">
+                                <a href="{{ route('sponsorship.select') }}" class="btn btn-primary"><i class="fa-regular fa-circle-left me-1"></i>Sponsorship Selector</a>
+                            </div>
                         </div>
+                            
+                            
                     </form>
                 </div>
                 
+                            
             </div>
             
             
