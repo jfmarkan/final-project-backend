@@ -37,7 +37,7 @@ class GuestController extends Controller
         ]);
     }
 
-    public function filterBySpecialization(Request $request){
+    public function select(Request $request){
 
         $selectedValue = $request->input('specialization');
         if($selectedValue){
