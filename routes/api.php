@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\GuestController as ApiGuestController;
 use App\Http\Controllers\Api\AdminController as ApiAdminController;
 use App\Http\Controllers\Api\BookingController as ApiBookingController;
+use App\Http\Controllers\Api\ReviewController as ApiReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +54,4 @@ Route::post('/login', [ApiGuestController::class, 'login'])->name('api.login');
 //MAIL ROUTE
 //Route::get('/bookingMessage', [ApiBookingController::class, 'index'])->name('api.index.bookingMessage');
 Route::post('/bookingMessage', [ApiBookingController::class, 'store'])->name('api.bookingMessage');
+Route::post('/reviews', [ApiReviewController::class, 'store'])->name('api.reviews');
