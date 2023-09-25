@@ -23,7 +23,7 @@ class SponsorshipController extends Controller
     }
 
     public function processPayment(Request $request){
-        
+
         $sponsorshipId = $request->input('sponsorship_id');
         $sponsorship = Sponsorship::find($sponsorshipId);
 
@@ -34,13 +34,16 @@ class SponsorshipController extends Controller
             'privateKey' => env('BRAINTREE_PRIVATE_KEY'),
         ]);
 
+        $clientToken = $gateway->clientToken()->generate();
+        
+
         $result = $gateway->transaction()->sale([
             'amount' => $sponsorship->price,
-            'paymentMethodNonce' => "fake-valid-nonce",
-            //'paymentMethodNonce' => $request->input('paymentMethodNonce'),
+            //'paymentMethodNonce' => "fake-valid-nonce",
+            'paymentMethodNonce' => $request->input('paymentMethodNonce'),
             'options' => ['submitForSettlement' => true],
         ]);
-        
+        dd($result);
         if ($result->success){
             $hunterId = Auth::id(); // Obtener el ID del hunter autenticado
             $sponsorshipId = $sponsorship->id;
