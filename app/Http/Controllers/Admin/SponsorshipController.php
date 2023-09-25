@@ -18,12 +18,27 @@ class SponsorshipController extends Controller
     }
 
     public function billing(){
+        $gateway = new Gateway([
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchant_id'),
+            'publicKey' => config('services.braintree.public_key'),
+            'privateKey' => config('services.braintree.private_key'),
+        ]);
 
-        return view('admin.sponsorship.billing');
+        $clientToken = $gateway->clientToken()->generate();
+
+        return view('admin.sponsorship.billing', compact('clientToken'));
     }
 
-    public function processPayment(Request $request){
+    public function generateBraintreeClientToken()
+{
 
+
+    return response()->json(['clientToken' => $clientToken]);
+}
+
+    public function processPayment(Request $request){
+        $paymentMethodNonce = $request->input('payment_method_nonce');
         $sponsorshipId = $request->input('sponsorship_id');
         $sponsorship = Sponsorship::find($sponsorshipId);
 
@@ -34,16 +49,13 @@ class SponsorshipController extends Controller
             'privateKey' => env('BRAINTREE_PRIVATE_KEY'),
         ]);
 
-        $clientToken = $gateway->clientToken()->generate();
-        
-
         $result = $gateway->transaction()->sale([
             'amount' => $sponsorship->price,
-            //'paymentMethodNonce' => "fake-valid-nonce",
-            'paymentMethodNonce' => $request->input('paymentMethodNonce'),
+            'paymentMethodNonce' => "fake-valid-nonce",
+            //'paymentMethodNonce' => $paymentMethodNonce,
             'options' => ['submitForSettlement' => true],
         ]);
-        dd($result);
+
         if ($result->success){
             $hunterId = Auth::id(); // Obtener el ID del hunter autenticado
             $sponsorshipId = $sponsorship->id;
@@ -57,9 +69,9 @@ class SponsorshipController extends Controller
                 'sponsorship_end' => $endDate,
             ]);
 
-            return view('payment-success');
+            return redirect()->route('dashboard')->with('success');
         }else{
-            return redirect()->back()->with('error', 'Payment didn\'t go through');
+            return redirect()->back()->with('error');
         }
     }
 }

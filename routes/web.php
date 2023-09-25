@@ -34,18 +34,7 @@ Route::get('admin/inbox', [PageController::class, 'inbox'])->middleware('auth')-
 // ---------- SPONSORSHIP SELECTION AND PAYMENT
 Route::get('admin/sponsorship/select', [SponsorshipController::class, 'selection'])->middleware('auth')->name('sponsorship.select');
 Route::get('admin/sponsorship/billing', [SponsorshipController::class, 'billing'])->middleware('auth')->name('sponsorship.billing');
-Route::get('/generate-client-token', function () {
-    $gateway = new Gateway([
-        'environment' => config('services.braintree.environment'),
-        'merchantId' => config('services.braintree.merchant_id'),
-        'publicKey' => config('services.braintree.public_key'),
-        'privateKey' => config('services.braintree.private_key'),
-    ]);
-
-    $clientToken = $gateway->clientToken()->generate();
-
-    return response()->json(['clientToken' => $clientToken]);
-});
+Route::get('admin/sponsorship/generate-client-token', [SponsorshipController::class, 'generateBraintreeClientToken'])->middleware('auth')->name('sponsorship.generateBraintreeClientToken');
 Route::post('admin/sponsorship/payment', [SponsorshipController::class, 'processPayment'])->middleware('auth')->name('sponsorship.processPayment');
 
 Route::get('admin/sponsorship/error', [SponsorshipController::class, 'error'])->middleware('auth')->name('sponsorship.error');
