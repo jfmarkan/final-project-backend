@@ -9,7 +9,7 @@
                     <div class="card my_character-card bg-transparent my_bg-glass mb-3">
                         <div class="d-flex justify-content-center">
                             @if (is_null(auth::user()->hunter->image))
-                                <img src="{{ asset('img/no-avatar.jpeg') }}" alt="CUCU" class="my_profile-picture my-3">
+                                <img src="{{ asset('img/no-avatar.jpeg') }}" alt="Load your profile picture" class="my_profile-picture my-3">
                             @elseif (str_starts_with((auth::user()->hunter['image']), 'http' ))
                                 <img src="{{auth::user()->hunter['image']}}" alt="auth::user()->hunter['name']'s profile picture" class="my_profile-picture my-3">
                             @else
@@ -80,12 +80,27 @@
                 </div>
             </div>
             <div class="row d-flex">
-                <div class="col-xl-5 offset-xl-2 mb-3">
-                <div class="card bg-transparent">
+                <div class="col">
+                    <div class="card bg-transparent">
+                        <div class="card-header my_header-glass text-white">
+                            Sponsorships
+                        </div>
+                        <div class="card-body my_bg-glass rounded-bottom">
+                            <div class="d-flex justify-content-center">
+                                <a href="{{ route('sponsorship.select')}}" class="btn btn-primary">Go to SPONSORSHIPS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 mb-3">
+                    <div class="card bg-transparent">
                         <div class="card-header my_header-glass text-white">
                             Latest Messages
                         </div>
                         <div class="card-body my_bg-glass rounded-bottom">
+                            @if ($totalMessages == 0)
+                                <p class="text-center text-white">No messages have been received</p>
+                            @else
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -107,6 +122,7 @@
                             <div class="d-flex justify-content-end">
                                 <a href="{{ route('inbox')}}" class="btn btn-primary">Go to INBOX</a>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -116,6 +132,9 @@
                             Latest Reviews
                         </div>
                         <div class="card-body my_bg-glass rounded-bottom">
+                            @if ($countReviews == 0)
+                                <p class="text-center text-white">No reviews have been received </p>
+                            @else
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -138,14 +157,12 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        
-
     </div>
 </div>
 @endsection

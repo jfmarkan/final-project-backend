@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HunterController as HunterController;
+use App\http\Controllers\Admin\PageController as PageController;
+use App\Http\Controllers\Admin\SponsorshipController as SponsorshipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,15 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('admin/edit/{hunter}', [HunterController::class, 'edit'])->middleware('auth')->name('edit');
-Route::get('admin/dashboard', [HunterController::class, 'dashboard'])->middleware('auth')->name('dashboard');
-Route::get('admin/inbox', [HunterController::class, 'inbox'])->middleware('auth')->name('inbox');
 Route::put('admin/edit/{hunter}', [HunterController::class, 'update'])->middleware('auth')->name('update');
+
+// ---------- HUNTER DASHBOARD NAVIGATION
+Route::get('admin/dashboard', [PageController::class, 'dashboard'])->middleware('auth')->name('dashboard');
+Route::get('admin/inbox', [PageController::class, 'inbox'])->middleware('auth')->name('inbox');
+
+// ---------- SPONSORSHIP SELECTION AND PAYMENT
+Route::get('admin/sponsorship/select', [SponsorshipController::class, 'selection'])->middleware('auth')->name('sponsorship.select');
+Route::get('admin/sponsorship/billing', [SponsorshipController::class, 'billing'])->middleware('auth')->name('sponsorship.billing');
+Route::post('admin/sponsorship/payment', [SponsorshipController::class, 'processPayment'])->middleware('auth')->name('sponsorship.processPayment');
+
+Route::get('admin/sponsorship/error', [SponsorshipController::class, 'error'])->middleware('auth')->name('sponsorship.error');
