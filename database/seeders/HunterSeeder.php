@@ -20,7 +20,7 @@ class HunterSeeder extends Seeder
                 "name"=>"Eristelle",
                 "surname"=>"Moonfollow",
             ],[
-                "image" => "https://en.wikipedia.org/wiki/Ellen_Ripley#/media/File:Ellen_ripley.jpg",
+                "image" => "https://static.wikia.nocookie.net/avp/images/4/48/Ellen_Ripley.png",
                 "name" => "Ellen Louise",
                 "surname" => "Ripley",
             ],[

@@ -30,6 +30,7 @@ Route::put('admin/edit/{hunter}', [HunterController::class, 'update'])->middlewa
 // ---------- HUNTER DASHBOARD NAVIGATION
 Route::get('admin/dashboard', [PageController::class, 'dashboard'])->middleware('auth')->name('dashboard');
 Route::get('admin/inbox', [PageController::class, 'inbox'])->middleware('auth')->name('inbox');
+Route::get('admin/reviews', [PageController::class, 'reviews'])->middleware('auth')->name('reviews');
 
 // ---------- SPONSORSHIP SELECTION AND PAYMENT
 Route::get('admin/sponsorship/select', [SponsorshipController::class, 'selection'])->middleware('auth')->name('sponsorship.select');
@@ -38,5 +39,3 @@ Route::get('admin/sponsorship/generate-client-token', [SponsorshipController::cl
 Route::post('admin/sponsorship/payment', [SponsorshipController::class, 'processPayment'])->middleware('auth')->name('sponsorship.processPayment');
 
 Route::get('admin/sponsorship/error', [SponsorshipController::class, 'error'])->middleware('auth')->name('sponsorship.error');
-
-Route::get('admin/reviews', [HunterController::class, 'reviews'])->middleware('auth')->name('reviews');

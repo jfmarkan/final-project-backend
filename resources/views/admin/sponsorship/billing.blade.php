@@ -187,7 +187,7 @@
     var clientToken = clientTokenContainer.value
 
     braintree.client.create({
-        authorization: clientToken
+        authorization: sandbox_rzytkqvf_cjfsr2sswzrq5nsf
     }, function (clientErr, clientInstance) {
         if (clientErr) {
             console.error(clientErr);
