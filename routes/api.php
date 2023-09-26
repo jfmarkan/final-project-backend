@@ -55,3 +55,7 @@ Route::post('/login', [ApiGuestController::class, 'login'])->name('api.login');
 //Route::get('/bookingMessage', [ApiBookingController::class, 'index'])->name('api.index.bookingMessage');
 Route::post('/bookingMessage', [ApiBookingController::class, 'store'])->name('api.bookingMessage');
 Route::post('/reviews', [ApiReviewController::class, 'store'])->name('api.reviews');
+
+
+Route::get('/filter', [ApiGuestController::class, 'filter'])->name('api.guest.filter
+');

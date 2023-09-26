@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Requests\LoginRequest;
 use App\Models\Hunter;
+use App\Models\Review;
 use App\Models\User;
 use App\Models\Specialization;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class GuestController extends Controller
 {
@@ -54,32 +56,36 @@ class GuestController extends Controller
         ]);
     }
 
-//     public function select(Request $request){
-//     // Ottieni il valore del parametro "specialization" dalla richiesta
-//     $selectedValue = $request->input('specialization');
-    
-//     // Effettua la query per ottenere la specializzazione
-//     $specialization = Specialization::where('name', 'LIKE', '%' . $selectedValue . '%')->first();
-    
-//     if (!$specialization) {
-//         return response()->json([
-//             'success' => true,
-//             'results' => [], // Nessuna specializzazione trovata
-//         ]);
-//     }
-    
-//     // Ora ottieni gli hunters associati a questa specializzazione
-//     $hunters = $specialization->hunters;
+    public function filter(Request $request){
+        $specialization = $request->input('specialization');
+        $minReview = $request->input('min_review');
+        $minAverage = $request->input('min_average');
 
-    
-//     return response()->json([
-//         'success' => true,
-//         'results' => $hunters,
-//     ]);
-    
-// }
+        $query = Hunter::query();
 
+        if($specialization){
+            $query->whereHas('specializations', function ($subQuery1) use ($specialization){
+                $subQuery1->where('name', $specialization);
+            });
+        }
+        if($minReview){
+            $query->has('reviews', '>=', $minReview);
+        }
+        if ($minAverage) {
+            $query->whereHas('reviews', function ($subQuery) use ($minAverage) {
+                $subQuery->select('user_id')
+                ->groupBy('user_id')
+                ->havingRaw('AVG(vote) >= ?', [$minAverage]);
+            });
+        }
 
+        $hunters = $query->get();
+
+        return response()->json([
+            'success' => true,
+            'results' => $hunters,
+        ]);
+    }
     
 
     public function show($user_id)

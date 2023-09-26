@@ -24,4 +24,8 @@ class Hunter extends Model
     public function specializations(){
         return $this->belongsToMany(Specialization::class, 'hunter_specialization', 'hunter_id', 'specialization_id');
     }
+
+    public function reviews(){
+        return $this->hasMany(Review::class, 'user_id');
+    }
 }

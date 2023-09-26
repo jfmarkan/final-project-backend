@@ -12,4 +12,8 @@ class Review extends Model
     protected $table = "reviews";
 
     protected $fillable = ['user_id','name','surname','vote','review'];
+
+    public function hunter(){
+        return $this->belongsTo(hunter::class, 'user_id');
+    }
 }
