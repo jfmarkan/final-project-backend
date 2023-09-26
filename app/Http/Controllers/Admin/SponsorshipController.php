@@ -30,13 +30,6 @@ class SponsorshipController extends Controller
         return view('admin.sponsorship.billing', compact('clientToken'));
     }
 
-    public function generateBraintreeClientToken()
-{
-
-
-    return response()->json(['clientToken' => $clientToken]);
-}
-
     public function processPayment(Request $request){
         $paymentMethodNonce = $request->input('payment_method_nonce');
         $sponsorshipId = $request->input('sponsorship_id');
@@ -69,9 +62,9 @@ class SponsorshipController extends Controller
                 'sponsorship_end' => $endDate,
             ]);
 
-            return redirect()->route('dashboard')->with('success');
+            return redirect()->route('dashboard')->with('success', 'Congratulations, you can now enjoy the benefits of our sponsorship program.');
         }else{
-            return redirect()->back()->with('error');
+            return redirect()->back()->with('error', 'It seems there has been a problem processing your payment, pleas verify your data or try with another card');
         }
     }
 }

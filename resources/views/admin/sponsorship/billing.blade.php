@@ -6,7 +6,15 @@
 @endsection
 
 @section('content')
+
 <div class="container">
+    @if (session('error'))
+    <div class="col-12">
+        <div class="alert alert-danger">
+            <i class="fa-solid fa-circle-exclamation"></i> {{ session('error') }}.
+        </div>
+    </div>
+    @endif
     <div class="payment-wrapper">
         <div class="card my_header-glass p-2">
             <div class="payment-title">
