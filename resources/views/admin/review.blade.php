@@ -19,6 +19,7 @@
                                 <tr>
                                     <th scope="col" class="col-2 bg-transparent text-white">From</th>
                                     <th scope="col" class="bg-transparent text-white">Review</th>
+                                    <th scope="col" class="bg-transparent text-white">Date</th>
                                     <th scope="col" class="col-1 bg-transparent text-center text-white">Vote received</th>
                                 </tr>
                             </thead>
@@ -27,6 +28,7 @@
                                 <tr>
                                     <th scope="row" class="bg-transparent text-white">{{$reviews->name}} {{$reviews->surname}}</th>
                                     <td class="bg-transparent text-white">{{($reviews->review)}}</td>
+                                    <td class="bg-transparent text-white">{{($reviews->created_at)}}</td>
                                     <td class="bg-transparent text-center text-white">{{($reviews->vote)}}</td>
                                 </tr>
                                 @endforeach
