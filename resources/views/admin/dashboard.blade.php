@@ -1,7 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+    
 <div class="container-fluid">
+    @if (session('success'))
+        <div class="col-12">
+            <div class="alert alert-success">
+                <i class="fa-solid fa-circle-exclamation"></i> {{ session('success') }}.
+            </div>
+        </div>
+    @endif
     <div class="row justify-content-between">
         <div class="col">
             <div class="row">
