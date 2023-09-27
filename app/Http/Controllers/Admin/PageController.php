@@ -6,8 +6,11 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\BookingMessage;
+use App\Models\HunterSponsorship;
 use App\Models\Review;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 class PageController extends Controller
 {
     public function dashboard(){
@@ -17,27 +20,33 @@ class PageController extends Controller
             $creationDate = Carbon::parse($hunter);
             $currentDate= Carbon::now();
         }
-
         $dateDifference= $creationDate->diffInDays($currentDate);
 
+        $activeSponsorship = HunterSponsorship::where('hunter_id', Auth::id())
+            ->where('sponsorship_end', '>', Carbon::now())
+            ->latest()
+            ->first();
 
+        if ($activeSponsorship) {
+            $remainingSponsorshipDays = $currentDate->diffInDays($activeSponsorship->sponsorship_end);
+            $remainingSponsorshipHours = $currentDate->diffInHours($activeSponsorship->sponsorship_end);
+        } else {
+            $remainingSponsorshipDays = 0;
+            $remainingSponsorshipHours = 0;
+        }
         
         $messages = BookingMessage::where('user_id', '=', auth()->user()->id)->orderBy('created_at', 'DESC')->paginate(3);
         $totalMessages = BookingMessage::where('user_id', '=', auth()->user()->id)->count();
         $reviews = Review::where('user_id', '=', auth()->user()->id)->orderBy('created_at', 'DESC')->paginate(3);
         $countReviews = Review::where('user_id', '=', auth()->user()->id)->count();
         $sumReviews = Review::where('user_id', '=', auth()->user()->id)->sum('vote');
-        $memberSince = User::where('id', '=', auth()->user()->id)->pluck('created_at');
-        //$timeAsMember= date_diff($currentDate, $memberSince);
-        //dd($memberSince);
 
         if($countReviews > 0){
             $averageVote = (intval($sumReviews)/$countReviews);
         }else{
             $averageVote = '-';
         }
-        
-        return view('admin.dashboard', compact('reviews','messages','countReviews','averageVote','totalMessages', 'dateDifference'));
+        return view('admin.dashboard', compact('reviews','messages','countReviews','averageVote','totalMessages', 'dateDifference', 'remainingSponsorshipDays', 'remainingSponsorshipHours'));
     }
 
     public function inbox(){

@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    
 <div class="container-fluid">
     @if (session('success'))
         <div class="col-12">
@@ -25,10 +24,8 @@
                             @endif
                         </div>
                         <div class="my_character-name text-center">
-                            
                                 <h2>{{ auth::user()->hunter['surname'] }}</h2>
                                 <h3>{{ auth::user()->hunter['name'] }}</h3>
-                            
                         </div>
                         <div class="d-flex justify-content-center mb-3">
                             <a href="{{ route('edit', auth::user()->hunter['user_id']) }}" class="btn btn-primary">Edit Profile</a>
@@ -39,8 +36,8 @@
                     <div class="row">
                         <div class="col">
                             <div class="card bg-transparent">
-                                <div class="card-header my_header-glass">
-                                    Your evolution
+                                <div class="card-header my_header-glass text-white">
+                                    Statistics
                                 </div>
                                 <div class="card-body my_bg-glass rounded-bottom">
                                     <h5 class="card-title">Special title treatment</h5>
@@ -89,11 +86,21 @@
             </div>
             <div class="row d-flex">
                 <div class="col">
-                    <div class="card bg-transparent">
+                    <div class="my_stats-card card bg-transparent mb-3">
                         <div class="card-header my_header-glass text-white">
                             Sponsorships
                         </div>
-                        <div class="card-body my_bg-glass rounded-bottom">
+                        <div class="card-body my_bg-glass rounded-bottom text-center">
+                            @if ($remainingSponsorshipDays >= 1)
+                            <p class="card-title p-3">{{$remainingSponsorshipDays}}</p>
+                            <p class="card-text pb-2">days remaining</p>
+                            @elseif ($remainingSponsorshipHours > 0)
+                            <p class="card-title p-3">{{$remainingSponsorshipHours}}</p>
+                            <p class="card-text pb-2">hours remaining</p>
+                            @else
+                            <p class="card-text pb-2">Buy a sponsorship and</p>
+                            <p class="card-text pb-2">SHIFT your profile views!</p>
+                            @endif
                             <div class="d-flex justify-content-center">
                                 <a href="{{ route('sponsorship.select')}}" class="btn btn-primary">Go to SPONSORSHIPS</a>
                             </div>

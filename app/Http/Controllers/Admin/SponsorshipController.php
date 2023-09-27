@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\HunterSponsorship;
 use App\Models\Sponsorship;
 use Braintree\Gateway;
+use Carbon\Carbon;
 use Braintree\Test\Nonces as TestNonces;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
@@ -36,25 +37,33 @@ class SponsorshipController extends Controller
         $sponsorshipId = $request->input('sponsorship_id');
         $sponsorship = Sponsorship::find($sponsorshipId);
 
+        
         $gateway = new Gateway([
             'environment' => env('BRAINTREE_ENV', 'sandbox'),
             'merchantId' => env('BRAINTREE_MERCHANT_ID'),
             'publicKey' => env('BRAINTREE_PUBLIC_KEY'),
             'privateKey' => env('BRAINTREE_PRIVATE_KEY'),
         ]);
-
+        
         $result = $gateway->transaction()->sale([
             'amount' => $sponsorship->price,
             // 'paymentMethodNonce' => "fake-valid-nonce",
             'paymentMethodNonce' => $paymentMethodNonce,
             'options' => ['submitForSettlement' => true],
         ]);
-
+        
         if ($result->success){
+            $activeSponsorship = HunterSponsorship::where('hunter_id', Auth::id())
+                ->where('sponsorship_end', '>', Carbon::now())->orderBy('sponsorship_end', 'DESC')->first();
+            
             $hunterId = Auth::id(); // Obtener el ID del hunter autenticado
             $sponsorshipId = $sponsorship->id;
-            $startDate = now();
-            $endDate = now()->addHours($sponsorship->duration);
+            if($activeSponsorship){
+                $startDate = Carbon::parse($activeSponsorship->sponsorship_end);
+            }else{
+                $startDate = Carbon::now();
+            }
+            $endDate = $startDate->copy()->addHours($sponsorship->duration);
 
             HunterSponsorship::create([
                 'hunter_id' => $hunterId,
