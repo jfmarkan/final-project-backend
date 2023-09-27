@@ -428,14 +428,8 @@ console.log('Braintree Client Instance:', clientInstance);
         //Generate random card number from list of known test numbers
         const randomCard = function() {
             let testCards = [
-                "4000056655665556",
-                "5200828282828210",
-                "371449635398431",
-                "6011000990139424",
-                "30569309025904",
-                "3566002020360505",
-                "6200000000000005",
-                "6759649826438453"
+                "4111111111111111",
+                "4000111111111115"
             ];
             let randomNumber = Math.floor(Math.random() * testCards.length);
             cardnumber_mask.unmaskedValue = testCards[randomNumber];
