@@ -79,7 +79,7 @@
                         <div class="col-sm-6 col-lg-3 col-xl-12 mb-3">
                             <div class="my_stats-card bg-transparent my_header-glass">
                                 <div class="card-body my_bg-glass rounded text-center">
-                                    <p class="card-title p-3">{{$countReviews}}</p>
+                                    <p class="card-title p-3">{{$dateDifference}}</p>
                                     <p class="card-text pb-2">Days as Member</p>
                                 </div>
                             </div>
