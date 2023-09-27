@@ -12,4 +12,8 @@ class Sponsorship extends Model
     protected $table = "sponsorships";
 
     protected $fillable = ['name','price','duration'];
+
+    public function hunters(){
+        return $this->belongsToMany(Hunter::class, 'user_id');
+    }
 }

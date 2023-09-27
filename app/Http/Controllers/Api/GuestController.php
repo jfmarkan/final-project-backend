@@ -87,6 +87,18 @@ class GuestController extends Controller
         ]);
     }
     
+    public function sponsored(){
+        $currentDate = now();
+
+        $sponsoredHunters = Hunter::whereHas('sponsorships', function ($query) use ($currentDate) {
+            $query->where('sponsorship_end', '>', $currentDate);
+        })->get();
+
+        return response()->json([
+            'success' => true,    
+            'results' => $sponsoredHunters
+        ]);
+    }
 
     public function show($user_id)
     {

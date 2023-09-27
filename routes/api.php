@@ -43,6 +43,8 @@ Route::get('/hunters', [ApiGuestController::class, 'index'])->name('api.guest.in
 Route::get('/specializations', [ApiGuestController::class, 'specializations'])->name('api.guest.specializations');
 Route::get('/select', [ApiGuestController::class, 'select'])->name('api.guest.select');
 Route::get('/hunters/{hunter}', [ ApiGuestController::class, 'show' ])->name('api.guest.show');
+Route::get('/filter', [ApiGuestController::class, 'filter'])->name('api.guest.filter');
+Route::get('/sponsored', [ApiGuestController::class, 'sponsored'])->name('api.guest.sponsored');
 
 // DA GUEST CONTROLLER ROUTES PER LOGIN E SIGN IN
 Route::post('/sign-in', [ ApiGuestController::class, 'store'])->name('api.sign-in');
@@ -56,6 +58,3 @@ Route::post('/login', [ApiGuestController::class, 'login'])->name('api.login');
 Route::post('/bookingMessage', [ApiBookingController::class, 'store'])->name('api.bookingMessage');
 Route::post('/reviews', [ApiReviewController::class, 'store'])->name('api.reviews');
 
-
-Route::get('/filter', [ApiGuestController::class, 'filter'])->name('api.guest.filter
-');

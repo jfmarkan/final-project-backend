@@ -28,4 +28,8 @@ class Hunter extends Model
     public function reviews(){
         return $this->hasMany(Review::class, 'user_id');
     }
+
+    public function sponsorships(){
+        return $this->belongsToMany(Sponsorship::class, 'hunter_sponsorship');
+    }
 }
