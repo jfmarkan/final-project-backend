@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\HunterSponsorship;
 use App\Models\Sponsorship;
 use Braintree\Gateway;
+use Braintree\Test\Nonces as TestNonces;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +32,7 @@ class SponsorshipController extends Controller
     }
 
     public function processPayment(Request $request){
-        $paymentMethodNonce = $request->input('payment_method_nonce');
+        $paymentMethodNonce = TestNonces::$visaCheckoutVisa;
         $sponsorshipId = $request->input('sponsorship_id');
         $sponsorship = Sponsorship::find($sponsorshipId);
 
@@ -44,8 +45,8 @@ class SponsorshipController extends Controller
 
         $result = $gateway->transaction()->sale([
             'amount' => $sponsorship->price,
-            'paymentMethodNonce' => "fake-valid-nonce",
-            //'paymentMethodNonce' => $paymentMethodNonce,
+            // 'paymentMethodNonce' => "fake-valid-nonce",
+            'paymentMethodNonce' => $paymentMethodNonce,
             'options' => ['submitForSettlement' => true],
         ]);
 
