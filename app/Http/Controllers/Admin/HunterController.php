@@ -30,6 +30,9 @@ class HunterController extends Controller
     public function create()
     {
         //
+        $specializations = Specialization::all();
+        return view('admin.create', compact ('hunter','specializations'));
+        
     }
 
     /**
@@ -42,11 +45,12 @@ class HunterController extends Controller
         $data = $request->validate([
             'name' => ['required', 'min:2', 'max:255'],
             'surname' => ['max:255'],
-            'address' => ['max:255'],
-            'image' => ['image'],
+            'address' => ['required', 'max:255'],
+            'phone' => ['max:20'],
+            'image' => ['required', 'image'],
             'cv' => ['file'],
-            'services' => [ ],
-            'specializations' => ['exists:specializations,id']
+            'services' => [  ],
+            'specializations' => [ 'required', 'exists:specializations,id']
         ]);
 
         if ($request->hasFile('image')){
@@ -55,11 +59,11 @@ class HunterController extends Controller
         }
 
         //import use Illuminate\Support\Collection; to use collection
-        $collection = collect([
-            'address', 'city', 'state', 'zip'
-        ]);
+     //   $collection = collect([
+       //     'address', 'city', 'state', 'zip'
+       // ]);
 
-        $address = $collection->implode(', ');
+       // $address = $collection->implode(', ');
         $data['user_id'] = Auth::user()->id;
         $newHunter = Hunter::create($data);
         
@@ -99,6 +103,7 @@ class HunterController extends Controller
             'name' => ['required', 'min:2', 'max:255'],
             'surname' => ['max:255'],
             'address' => ['max:255'],
+            'phone' => ['max:20'],
             'image' => ['image'],
             'cv' => ['file'],
             'services' => [ ],
@@ -112,11 +117,11 @@ class HunterController extends Controller
         }
 
         //import use Illuminate\Support\Collection; to use collection
-        $collection = collect([
-            'address', 'city', 'state', 'zip'
-        ]);
+    //    $collection = collect([
+      //      'address', 'city', 'state', 'zip'
+       // ]);
 
-        $data['address'] = $collection->implode(', ');
+       // $data['address'] = $collection->implode(', ');
 
         $hunter->update($data);
 
