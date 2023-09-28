@@ -30,6 +30,6 @@ class Hunter extends Model
     }
 
     public function sponsorships(){
-        return $this->belongsToMany(Sponsorship::class, 'hunter_sponsorship');
+        return $this->belongsToMany(Sponsorship::class, 'hunter_sponsorship', 'hunter_id', 'sponsorship_id');
     }
 }

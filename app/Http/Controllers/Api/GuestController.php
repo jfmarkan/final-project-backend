@@ -40,21 +40,25 @@ class GuestController extends Controller
     }
 
     public function select(Request $request){
-
         $selectedValue = $request->input('specialization');
+        
+        $filteredHunters = Hunter::with(['specializations', 'sponsorships']);
+    
         if($selectedValue){
-            $filteredHunters = Hunter::whereHas('specializations', function ($query) use ($selectedValue) {
+            $filteredHunters->whereHas('specializations', function ($query) use ($selectedValue) {
                 $query->where('name', 'LIKE', '%' . $selectedValue . '%');
-            })->paginate(20);
-        } else {
-            $filteredHunters = Hunter::paginate(20);
+            });
         }
+    
+        $hunters = $filteredHunters->get();
         
         return response()->json([
             'success' => true,
-            'results' => $filteredHunters,
+            'results' => $hunters,
         ]);
     }
+    
+    
 
     public function filter(Request $request){
         $specialization = $request->input('specialization');
