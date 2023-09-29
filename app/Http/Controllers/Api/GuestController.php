@@ -66,6 +66,7 @@ class GuestController extends Controller
         $minAverage = $request->input('min_average');
 
         $query = Hunter::query();
+        
 
         if($specialization){
             $query->whereHas('specializations', function ($subQuery1) use ($specialization){
@@ -82,6 +83,9 @@ class GuestController extends Controller
                 ->havingRaw('AVG(vote) >= ?', [$minAverage]);
             });
         }
+
+
+        $query->with('sponsorships');
 
         $hunters = $query->get();
 
