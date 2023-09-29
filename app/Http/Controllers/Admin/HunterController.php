@@ -111,7 +111,7 @@ class HunterController extends Controller
         ]);
 
         if ($request->hasFile('image')){
-            Storage::delete($hunter->image);
+            !is_null($hunter->image) && Storage::delete($hunter->image);
             $img_path = Storage::put('uploads/hunters', $request['image']);
             $data['image'] = $img_path;
         }
