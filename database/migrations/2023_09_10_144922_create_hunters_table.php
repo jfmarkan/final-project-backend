@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('surname', 50)->nullable();
             $table->text('image')->nullable();
             $table->text('cv')->nullable();
-            $table->smallInteger('phone')->nullable();
+            $table->Integer('phone')->nullable();
             $table->string('address', 150)->nullable();
             $table->text('services')->nullable();
             $table->timestamps();
