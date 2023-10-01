@@ -41,7 +41,9 @@
                                 </div>
                                 <div class="card-body my_bg-glass rounded-bottom">
                                     <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <canvas id="myChart">
+                                        
+                                    </canvas>
                                 </div>
                             </div>
                         </div>
@@ -183,4 +185,56 @@
         </div>
     </div>
 </div>
+
+<!-- // SCRIPT -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Reviews Received', 'Average Vote', 'Messages Received', 'Days as Member'],
+      datasets: [{
+        label: 'Feedback From Customers',
+        data: [{{$countReviews}}, {{ $averageVote }}, {{$totalMessages}}, {{$dateDifference}}],
+        borderWidth: 1,
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          title:{
+            display: true,
+            text: 'Range',
+            color:'black'
+          },
+          min: 0,
+          max: 10,
+          grid: {
+                color: 'rgba(0, 0, 0, 0.2)' // Cambia il colore della griglia
+            },
+            ticks: {
+                color: 'black',
+            }
+        },
+        x:{
+            ticks: {
+                color: 'black',
+            }
+        }
+      },
+      plugins:{
+        legend:{
+            labels:{
+                color:'black'
+            }
+        }
+      }
+    }
+  });
+</script>
 @endsection
+
