@@ -100,7 +100,8 @@ class GuestController extends Controller
 
         $sponsoredHunters = Hunter::whereHas('sponsorships', function ($query) use ($currentDate) {
             $query->where('sponsorship_end', '>', $currentDate);
-        })->get();
+        })->with('specializations')->get();
+        
 
         return response()->json([
             'success' => true,    
