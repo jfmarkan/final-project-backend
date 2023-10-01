@@ -41,7 +41,7 @@
                                         Statistics
                                     </h2>
                                 </div>
-                                <div class="card-body my_bg-glass rounded-bottom">
+                                <div class="card-body my_bg-glass rounded-bottom" style="position: relative; height:60vh; width:60vw margin:auto;">
                                     <canvas id="myChart">
                                         
                                     </canvas>
@@ -194,6 +194,7 @@
 <script>
   const ctx = document.getElementById('myChart');
 
+
   new Chart(ctx, {
     type: 'bar',
     data: {
@@ -236,6 +237,8 @@
             }
         }
       },
+      responsive:true,
+      maintainAspectRatio: false,
     }
   });
 </script>
