@@ -37,10 +37,11 @@
                         <div class="col">
                             <div class="card bg-transparent">
                                 <div class="card-header my_header-glass text-white">
-                                    Statistics
+                                    <h2 id='stat-title'>
+                                        Statistics
+                                    </h2>
                                 </div>
                                 <div class="card-body my_bg-glass rounded-bottom">
-                                    <h5 class="card-title">Special title treatment</h5>
                                     <canvas id="myChart">
                                         
                                     </canvas>
@@ -200,7 +201,9 @@
       datasets: [{
         label: 'Feedback From Customers',
         data: [{{$countReviews}}, {{ $averageVote }}, {{$totalMessages}}, {{$dateDifference}}],
-        borderWidth: 1,
+        backgroundColor: ['rgb(112, 0, 11,0.7)', 'rgb(112, 0, 11,0.7)', 'rgb(112, 0, 11,0.7)', 'rgb(112, 0, 11,0.7)'],
+        borderColor:['rgb(112, 0, 11)', 'rgb(112, 0, 11)', 'rgb(112, 0, 11)', 'rgb(112, 0, 11)'],
+        borderWidth: 2,
       }]
     },
     options: {
@@ -209,7 +212,7 @@
           title:{
             display: true,
             text: 'Range',
-            color:'black'
+            color:'white'
           },
           min: 0,
           max: 10,
@@ -217,22 +220,22 @@
                 color: 'rgba(0, 0, 0, 0.2)' // Cambia il colore della griglia
             },
             ticks: {
-                color: 'black',
+                color: 'white',
             }
         },
         x:{
             ticks: {
-                color: 'black',
+                color: 'white',
             }
         }
       },
       plugins:{
         legend:{
             labels:{
-                color:'black'
+                color:'white',
             }
         }
-      }
+      },
     }
   });
 </script>
