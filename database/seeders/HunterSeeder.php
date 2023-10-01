@@ -24,7 +24,7 @@ class HunterSeeder extends Seeder
                 "name" => "Ellen Louise",
                 "surname" => "Ripley",
             ],[
-                "image" => "https://static.wikia.nocookie.net/vsbattles/images/7/73/Ada_wong.png/revision/latest?cb=20151125090909",
+                "image" => "https://umbrella-online.co.uk/wiki_files/characters/ada-wong-re2r.png",
                 "name" => "Ada",
                 "surname" => "Wong",
             ],[
@@ -40,7 +40,7 @@ class HunterSeeder extends Seeder
                 "name" => "Rick",
                 "surname" => "O' Connell",
             ],[
-                "image" => "https://static.wikia.nocookie.net/monsterhunter/images/7/71/MHST2-Kamura_Garb_Layered_Armor_Render_001.png/revision/latest/scale-to-width-down/250?cb=20210710190217",
+                "image" => "https://static.tvtropes.org/pmwiki/pub/images/index_character01.jpg",
                 "name" => "Leo and Leia",
                 "surname" => "",
             ],[
@@ -60,7 +60,7 @@ class HunterSeeder extends Seeder
                 "name" => "Kei",
                 "surname" => "Kurono",
             ],[
-                "image" => "https://static.wikia.nocookie.net/virtualarena/images/e/e2/Wolverinewikia.jpg/revision/latest?cb=20110401140355&path-prefix=it",
+                "image" => "https://deadline.com/wp-content/uploads/2022/09/MCDXMEN_FE105.jpg?w=681&h=383&crop=1",
                 "name" => "Logan",
                 "surname" => "Wolverine",
             ],[
@@ -80,7 +80,7 @@ class HunterSeeder extends Seeder
                 "name" => "Dante",
                 "surname" => "Son Of Sparda",
             ],[
-                "image" => "https://static.wikia.nocookie.net/p__/images/9/9e/Maka_Albarn.png/revision/latest?cb=20190621231354&path-prefix=protagonist",
+                "image" => "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c2c26653-775b-4645-9b06-add91e1a6426/dexe56w-3b45b8c2-7842-4fff-ae8b-fed2ac2945d8.jpg/v1/fill/w_1280,h_1138,q_75,strp/maka_albarn__from_soul_eater__by_niellart_dexe56w-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTEzOCIsInBhdGgiOiJcL2ZcL2MyYzI2NjUzLTc3NWItNDY0NS05YjA2LWFkZDkxZTFhNjQyNlwvZGV4ZTU2dy0zYjQ1YjhjMi03ODQyLTRmZmYtYWU4Yi1mZWQyYWMyOTQ1ZDguanBnIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.FEXqeSSiNMtvdRmFEmaGR6mkDQQpJNojdlt397iWCRg",
                 "name" => "Maka",
                 "surname" => "Albarn",
             ],[
@@ -144,7 +144,7 @@ class HunterSeeder extends Seeder
                 "name" => "Thorne",
                 "surname" => "Ironclad",
             ],[
-                "image" => "",
+                "image" => "https://i.pinimg.com/564x/66/b9/4a/66b94af23b96cbf6ec1c96482f621e9a.jpg",
                 "name" => "Nyx",
                 "surname" => "Cromanter",
             ],[
