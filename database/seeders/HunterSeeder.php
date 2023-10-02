@@ -124,23 +124,23 @@ class HunterSeeder extends Seeder
                 "name" => "Orion",
                 "surname" => "Starfire",
             ],[
-                "image" => "",
+                "image" => "https://i.pinimg.com/236x/13/12/dc/1312dc84bbe4525e2804e929ba0efc3f.jpg",
                 "name" => "Seraphina",
                 "surname" => "Shadowcaster",
             ],[
-                "image" => "",
+                "image" => "https://i.pinimg.com/236x/5a/96/37/5a96378adac9e35b9b48d5de673330ff.jpg",
                 "name" => "Draven",
                 "surname" => "Fireforge",
             ],[
-                "image" => "",
+                "image" => "https://i.pinimg.com/236x/b7/29/ef/b729ef724ac61fbdd004218d9104ead5.jpg",
                 "name" => "Siren",
                 "surname" => "Songblade",
             ],[
-                "image" => "",
+                "image" => "https://i.pinimg.com/236x/ad/91/8e/ad918ee5c4bbe639732e81cded23ceb3.jpg",
                 "name" => "Aiko",
                 "surname" => "Kitsune",
             ],[
-                "image" => "",
+                "image" => "https://i.pinimg.com/236x/15/a2/af/15a2af308888f0cc16667707689e4cb2.jpg",
                 "name" => "Thorne",
                 "surname" => "Ironclad",
             ],[
@@ -148,19 +148,19 @@ class HunterSeeder extends Seeder
                 "name" => "Nyx",
                 "surname" => "Cromanter",
             ],[
-                "image" => "",
+                "image" => "https://i.pinimg.com/236x/7a/3a/56/7a3a56f767166a611f2f4274a3ef3264.jpg",
                 "name" => "Vega",
                 "surname" => "Stardust",
             ],[
-                "image" => "",
+                "image" => "https://i.pinimg.com/236x/e5/b3/d0/e5b3d0f735e070223a88955f3e7b98d4.jpg",
                 "name" => "Artemis",
                 "surname" => "Steelheart",
             ],[
-                "image" => "",
+                "image" => "https://i.pinimg.com/236x/f8/6d/05/f86d05bae8fb51e002bf5017debd29bc.jpg",
                 "name" => "Orion",
                 "surname" => "Voidwalker",
             ],[
-                "image" => "",
+                "image" => "https://i.pinimg.com/236x/ed/ef/3d/edef3d13c05811b5b81237907e4058a9.jpg",
                 "name" => "Luna",
                 "surname" => "Starwhisper",
             ],
