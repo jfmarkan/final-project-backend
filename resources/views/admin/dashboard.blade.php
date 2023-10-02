@@ -198,12 +198,12 @@
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Reviews Received', 'Average Vote', 'Messages Received', 'Days as Member'],
+      labels: ['1 star','2 stars','3 stars','4 stars','5 stars'],
       datasets: [{
         label: 'Feedback From Customers',
-        data: [{{$countReviews}}, {{ $averageVote }}, {{$totalMessages}}, {{$dateDifference}}],
-        backgroundColor: ['rgb(112, 0, 11,0.7)', 'rgb(112, 0, 11,0.7)', 'rgb(112, 0, 11,0.7)', 'rgb(112, 0, 11,0.7)'],
-        borderColor:['rgb(112, 0, 11)', 'rgb(112, 0, 11)', 'rgb(112, 0, 11)', 'rgb(112, 0, 11)'],
+        data: [{{$vote1}}, {{ $vote2}}, {{$vote3}}, {{$vote4}},{{$vote5}}],
+        backgroundColor: ['rgb(112, 0, 11,0.3)', 'rgb(112, 0, 11,0.4)', 'rgb(112, 0, 11,0.6)', 'rgb(112, 0, 11,0.7)','rgb(112, 0, 11,0.9)'],
+        borderColor:['rgb(112, 0, 11,0.3)', 'rgb(112, 0, 11,0.4)', 'rgb(112, 0, 11,0.6)', 'rgb(112, 0, 11,0.7)','rgb(112, 0, 11,0.9)'],
         borderWidth: 2,
       }]
     },

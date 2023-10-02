@@ -41,12 +41,22 @@ class PageController extends Controller
         $countReviews = Review::where('user_id', '=', auth()->user()->id)->count();
         $sumReviews = Review::where('user_id', '=', auth()->user()->id)->sum('vote');
 
+        $vote5 = Review::where('user_id', '=', auth()->user()->id)->where('vote', '=', '5')->count();
+
+        $vote4 = Review::where('user_id', '=', auth()->user()->id)->where('vote', '=', '4')->count();
+
+        $vote3 = Review::where('user_id', '=', auth()->user()->id)->where('vote', '=', '3')->count();
+
+        $vote2 = Review::where('user_id', '=', auth()->user()->id)->where('vote', '=', '2')->count();
+
+        $vote1 = Review::where('user_id', '=', auth()->user()->id)->where('vote', '=', '1')->count();
+
         if($countReviews > 0){
             $averageVote = (intval($sumReviews)/$countReviews);
         }else{
             $averageVote = '0';
         }
-        return view('admin.dashboard', compact('reviews','messages','countReviews','averageVote','totalMessages', 'dateDifference', 'remainingSponsorshipDays', 'remainingSponsorshipHours'));
+        return view('admin.dashboard', compact('reviews','messages','countReviews','averageVote','totalMessages', 'dateDifference', 'remainingSponsorshipDays', 'remainingSponsorshipHours', 'vote5', 'vote4', 'vote3', 'vote2', 'vote1'));
     }
 
     public function inbox(){
